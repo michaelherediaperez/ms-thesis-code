@@ -10,6 +10,7 @@ This repository contains the code used in my master thesis titled:
 2. [Bouc-Wen models and hysteresis behaviors](#bouc-wen-models-and-hysteresis-behaviors)
 3. [SINDy implementation](#sindy-implementation)
 4. [Complementary figures](#complementary-figures)
+5. [Folders structure](#folders-structure)
 
 ## Auxiliary Functions
 
@@ -65,3 +66,20 @@ The following codes are used to generate complementary figures for the thesis:
 | [pnorm.py](pnorm.py)               | Plots for the l0-norm, l1-norm, and l2-norm.                               |
 | [sign_approx_tanh.py](sign_approx_tanh.py) | Plots the approximations used for the SINDy implementation, including smooth absolute value and sign approximations. |
 
+
+## Folders structure
+
+The results and data used are organized into the following folders:
+
+
+| Folder Name         | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| **data**            | Contains data used in the generation of hysteresis models.                  |
+| **outputs**         | Contains `.txt` outputs from the SINDy implementation.                           |
+| **results_data**    | Contains data generated from hysteresis simulations using Bouc-Wen (BW) models. |
+| **results_plots**   | Contains plots from BW simulations, hysteresis behaviors, and complementary figures. |
+| **scopus**          | Contains citation data for the Bouc-Wen class model.                        |
+| **scopus_plots**    | Contains plots showing the evolution of the Bouc-Wen class model over the years. |
+| **sindy_plots_1**   | Contains plots for Case 1 (exponential growth external force), including single and composed libraries. |
+| **sindy_plots_1c**  | Contains plots for Case 1 with control.                                 |
+| **sindy_plots_2**   | Contains plots for Case 2 (linear-time growth external force).           |
