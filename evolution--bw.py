@@ -22,8 +22,8 @@ from functions import save_image
 ft = 14
 
 # Define file paths
-file1 = "scopus/yearly_counts.txt"      # specific.
-file2 = "scopus/yearly_counts_2.txt"    # general.
+file1 = "scopus/bw_yearly_counts_specific.txt"   
+file2 = "scopus/bw_yearly_counts_general.txt"    
 
 # Read both files into DataFrames
 df1 = pd.read_csv(file1)

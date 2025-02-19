@@ -1,5 +1,5 @@
 """
-This code creates a graph for the complex behavior of butterfly hysteresis 
+This code creates a graph for the complex behavior of butterfly hysteresis. 
 
 Coder:
     Michael Heredia Pérez
@@ -112,18 +112,17 @@ def bw_fs_model(t, X, params):
 if __name__ == "__main__": 
     # Define system parameters
     params = {
-        "m": 1.0,        # Mass
-        "c": 0.01,       # Damping coefficient
-        "ke": 2,      # Initial stiffness
-        "alpha": 0,   # Post-yield stiffness ratio
-        "beta": 0.5,     # Bouc-Wen shape parameter
-        "gamma": 0.5,    # Bouc-Wen shape parameter
-        "n": 4,          # Bouc-Wen exponent
-        "Fs_yield": 1.0, # Yield force of self-centering component
-        "ks1": 10.0,      # Initial stiffness of self-centering system
-        "ks2": 0.5,      # Post-yield stiffness after yielding
-        "usy": 0.5,      # Yield displacement
-        "omega": 2.0    # Frequency of excitation
+        "m"     : 1.0,   # Mass
+        "c"     : 0.01,  # Damping coefficient
+        "ke"    : 2,     # Initial stiffness
+        "alpha" : 0,     # Post-yield stiffness ratio
+        "beta"  : 0.5,   # Bouc-Wen shape parameter
+        "gamma" : 0.5,   # Bouc-Wen shape parameter
+        "n"     : 4,     # Bouc-Wen exponent
+        "ks1"   : 10.0,  # Initial stiffness of self-centering system
+        "ks2"   : 0.5,   # Post-yield stiffness after yielding
+        "usy"   : 0.5,   # Yield displacement
+        "omega" : 2.0    # Frequency of excitation
     }
 
     # Initial conditions: [x(0), v(0), z(0)]
@@ -148,8 +147,10 @@ if __name__ == "__main__":
     # Compute the restoring force.
     f_r = sc_restoring_force(x, z, params)
 
-    # Plot results
+    # Plot results.
     fig = plot_hysteresis(x, f_r)
+    
+    # Store the results.
     # save_image(fig, "hys--flag-shape")
     # store_data("hys--flag-shape", x, f_r, t_eval)
 

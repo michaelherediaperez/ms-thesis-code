@@ -6,14 +6,12 @@ hysteretic structural systems.
 Focus on: Feature Library
 
 Coder: 
-------
     Michael Heredia Pérez
     mherediap@unal.edu.co
     Universidad Nacional de Colombia 
     170001 Manizales, Colombia
 
 References:
------------
     Brunton, S. L., Proctor, J. L., & Kutz, J. N. (2016). Discovering governing 
     equations from data by sparse identification of nonlinear dynamical systems.
     Proceedings of the national academy of sciences, 113(15), 3932-3937.
@@ -35,7 +33,6 @@ References:
     https://github.com/dynamicslab/pysindy/tree/master
 
 Date:
------
     January 2025
 """
 
@@ -46,80 +43,11 @@ import matplotlib.pyplot as plt
 
 from sklearn.linear_model import Lasso
 
-# Custom functions
-from functions import plot_hysteresis, plot_comparatives_3, save_image
 from abs_smooth_approximation import abs_smooth_approximation
+from sindy_implementation_functions import simulate_sindy_model
 
 import time
 
-
-def simulate_sindy_model(X, X0, t, ft_lb_key, ft_lb_val):
-    """
-    This functions generates a SINDy model from the data and performes the 
-    simulation based on given initial conditions. The feature library 
-    information for the modeling process is given by a dictionary entry. 
-    The algorithm is the STLSQ with a fixed values, and the method for 
-    numerical differentiation is the default one. 
-    
-    Args:
-    -----
-        X (array): 
-            State vector.
-        X0 (array): 
-            Initial conditions.
-        t (array): 
-            Time vector.
-        ft_lb_key (string):
-            Dictionary key, it is the name of the feature library configuration. 
-            It is used to name the plot. 
-        ft_lb_val (array): 
-            Dictionary value, it is the feature library configuration used to 
-            build the SINDy model.
-    """
-
-    # Build the SINDy model with the defined feature library.
-    model = ps.SINDy(feature_library=ft_lb_val)
-    
-    # Define the optimization method for the model.
-    model.optimizer = ps.STLSQ(threshold=0.01, alpha=0.05)
-    #model.optimizer = Lasso(alpha=2, max_iter=2000, fit_intercept=False)
-    
-    # Fit the model and compute the simulation for the initial conditions.
-    model.fit(X, t=t)
-    X_sindy = model.simulate(X0, t) 
-        
-    # Repor the model, its score and the features implemented.
-    print("\n-----\n")
-    print(f"Used library: {ft_lb_key}")
-    print("\nThe model:"); model.print()
-    print("\nThe score:"); print(model.score(X, t=t))
-    print("\nThe names:"); print(model.get_feature_names())
-
-    # Plot the results.
-    fig = plot_comparatives_3(
-        X.T, X_sindy.T, t, xylabels=["x(t)", "fr(t)", "t"], title=ft_lb_key
-        )
-    # --------------------------------------------------
-    # COMMENT THE FOLLOWING LINE SO IT DOES NOT OVERDOES
-    # --------------------------------------------------
-    #save_image(fig, ft_lb_key, directory="sindy_plots_2")
-
-    return model
-
-
-def run_simulations_over_feature_library(feature_library) -> None: 
-    """Optimization to run the simulation the construction and simulation over 
-    a set of features library defined as a dictionary.
-
-    Args:
-    -----
-        feature_library (dic): 
-            Its keys are the coded names of the feature library.
-            Its values are the ps.FeatureLibrary structure with its own 
-            constraints.
-    """
-    for key, val in feature_library.items():
-        simulate_sindy_model(X, X0, t, key, val)
 
 # -----
 # Load the data and work with it.
@@ -136,13 +64,10 @@ x  = half_data[:, 0]     # displacement [mm]
 fr = half_data[:, 1]     # restoring force [kN] 
 t  = half_data[:, 2]     # time [s]
 
-# Display the experimental hysteresis.
-#plot_hysteresis(x, fr)
-
 # Build the state variables vector.
 X = np.column_stack([x, fr])
 # Set the initial conditions.
-X0 = np.array([0, 0])
+X_0 = np.array([0, 0])
 
 # =======================
 # FEATURE LIBRARY TESTING
@@ -206,22 +131,21 @@ cust_feature_library[f"FL_cus"] = ps.CustomLibrary(
     )
 
 # -----
-# Star to measure time.
-time_0 = time.time()
-
-# -----
 # Iterate over all the possibilities:
 
-run_simulations_over_feature_library(poly_feature_libraries) 
-run_simulations_over_feature_library(four_feature_libraries)
-run_simulations_over_feature_library(cust_feature_library)
+# Star timer.
+time_0 = time.time()
 
+print("\n----- BEGINS -----")
+simulate_sindy_model(X, X_0, t, poly_feature_libraries, optimizer="stlsq") 
+simulate_sindy_model(X, X_0, t, four_feature_libraries, optimizer="stlsq")
+simulate_sindy_model(X, X_0, t, cust_feature_library, optimizer="stlsq")
 print("\n----- ENDS -----")
 
-# -----
-# Stops timer.
+# Stop timer.
 time_f = time.time()
 total_time = time_f-time_0
 print(f"TIME USED: {total_time} seconds")
+
 
 # Fin :)

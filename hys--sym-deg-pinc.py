@@ -1,5 +1,5 @@
 """
-Creating multiple hysteretic behaviors. 
+Ploting multiple hysteretic behaviors: symmetric, degradation and pinching. 
 
 Coder: 
     Michael Heredia Pérez
@@ -15,15 +15,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from functions import save_image, store_data, read_parameter_set, plot_hysteresis
-from mbwbn_model import simulate_mbwbm, std_restoring_force
+from mbwbn_model import mbwbn_model
+from dynamics_functions import std_restoring_force, simulate_ODE
 
 
 # Define the time span and initial values.
 params = {}
 params["t_span"] = [0, 70]
-params["X_0"] = np.zeros(4) 
+params["X_0"]    = np.zeros(4) 
 
-# The following parameter sets are to be considered.
+# The following parameter sets are to be considered. 
+# The keys are the rows chosen form the file "./data/bw_parameters.csv".
+# The values are the behaviors they represent. 
 rows = {
     0 : "hys--symmetric",
     1 : "hys--deg-strength",
@@ -32,12 +35,15 @@ rows = {
 }
 
 for row, behavior in rows.items():
+    
     # Read the parameters.
     params_row = read_parameter_set("./data/bw_parameters.csv", row_index=row)
+    # Join the parameters fromthe .csv file to the fixed ones.
     params = params | params_row
     
     # Run the simulation.
-    x, v, z, e = simulate_mbwbm(params)
+    t, sol = simulate_ODE(params=params, ode_system=mbwbn_model)
+    x, v, z, e = sol
 
     # Calculate the standard restoring force.
     f_r = std_restoring_force(params, x, z) 
@@ -46,6 +52,5 @@ for row, behavior in rows.items():
     fig = plot_hysteresis(x, f_r)
     
     # Store the results.
-    save_image(fig, behavior)
-    # t = np.linspace(params["t_span"][0], params["t_span"][1], x.shape[0])
+    # save_image(fig, behavior)
     # store_data(behavior, x, f_r, t)

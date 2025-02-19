@@ -54,32 +54,6 @@ def plot_hysteresis(x, f_r, labels=False):
     return fig
 
 
-def plot_data(x, y, t):
-    """
-    Plots the simulation.
-    """
-    # Create the figure to store the axes.
-    # figsize 15/5 = 3 identical plots.
-    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
-    
-    axs[0].plot(t, x, "b-")  
-    axs[1].plot(t, y, "b-")  
-    axs[2].plot(x, y, "b-")  
-
-    # Define the titles and labels
-    x_labels = ["t"]*3
-    y_labels = ["x", "y", "y"] 
-    for i, ax in enumerate(axs):
-        ax.set(xlabel=x_labels[i], ylabel=y_labels[i])  
-        ax.grid()
-
-    # Adjust layout for better visualization, and present.
-    plt.tight_layout()
-    plt.show()
-
-    return fig
-
-
 def plot_comparatives_3(X, X_s, t, xylabels=["x", "y", "t"], title=""):
     """
     This function creates a graph with three plots showing the phase-state plot 

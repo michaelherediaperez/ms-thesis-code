@@ -177,21 +177,21 @@ if __name__ == "__main__":
     # Parameters related to the model.
     bw_params = {
         "alpha"       :  0.01,    # Ratio of post- to pre-yield sitffness.
-        "beta"        :  0.5,    # Bouc-Wen parameter.    
-        "gamma"       :  0.5,    # Bouc-Wen parameter.
-        "n"           :  1.0,    # Bouc-Wen parameter.
-        "nu_0"        :  0.4092, # strength degradation
-        "delta_nu"    :  3.2397, # strength degradation parameter
-        "A"           :  1.0000, # hysteresis amplitude
-        "delta_A"     :  0.8155, # control parameter of 'A' with respect to the energy
-        "eta_0"       :  3.4873, # stiffness degradation
-        "delta_eta"   : -0.8492, # stiffness degradation parameter
-        "p"           :  9.7076, # parameter which controls initial pinching
-        "zeta_0"      :  1.0962, # pinching severity
-        "psi_0"       :  1.2478, # pinching parameter
-        "delta_psi"   : -3.6339, # parameter which controls change of pinching
-        "lambda_"     : -3.2035, # pinching parameter
-        "q"           :  1.5662  # pinching parameter 
+        "beta"        :  0.5,     # Bouc-Wen parameter.    
+        "gamma"       :  0.5,     # Bouc-Wen parameter.
+        "n"           :  1.0,     # Bouc-Wen parameter.
+        "nu_0"        :  0.4092,  # strength degradation
+        "delta_nu"    :  3.2397,  # strength degradation parameter
+        "A"           :  1.0000,  # hysteresis amplitude
+        "delta_A"     :  0.8155,  # control parameter of 'A' with respect to the energy
+        "eta_0"       :  3.4873,  # stiffness degradation
+        "delta_eta"   : -0.8492,  # stiffness degradation parameter
+        "p"           :  9.7076,  # parameter which controls initial pinching
+        "zeta_0"      :  1.0962,  # pinching severity
+        "psi_0"       :  1.2478,  # pinching parameter
+        "delta_psi"   : -3.6339,  # parameter which controls change of pinching
+        "lambda_"     : -3.2035,  # pinching parameter
+        "q"           :  1.5662   # pinching parameter 
     }
        
     # Build the whole set of parameter

@@ -1,5 +1,5 @@
 """
-Set of functions to use in the modeling of Bouc-Wen class simulations
+Some functions to use in the modeling of Bouc-Wen class simulations.
 
 Coder: 
     Michael Heredia Pérez
@@ -53,6 +53,7 @@ def external_force(t_span, f0, omega, b, kind):
         raise Exception("Not valid external force formulation")
     return f
 
+
 def std_restoring_force(params, x, z):
     """
     Computes the standard restoring force for the Bouc-Wen model, as the paralel 
@@ -75,6 +76,7 @@ def std_restoring_force(params, x, z):
     # Unpack the parameters
     alpha = params["alpha"] # Ratio to post- to pre-yield stiffness.
     k     = params["k"]     # System stiffness. 
+    # Claculate the standard retoring force.
     f_r = alpha*k*x + (1-alpha)*k*z
     return f_r
 
@@ -84,7 +86,7 @@ def std_dissipated_energy_derivative(v, z, alpha, k):
     This functios return the derivative of the standard dissipated energy, 
     given by:
 
-    $varepsilon = (1-alpha) k int_{0}^{t}x(tau)\dot{x}(tau)$.
+    varepsilon = (1-alpha) k int_{0}^{t}x(tau)\dot{x}(tau).
     
     Args:
         v (numpy.ndarray):
@@ -100,8 +102,8 @@ def std_dissipated_energy_derivative(v, z, alpha, k):
         dot_varepsilon (numpy.ndarray): 
             Derivative of the dissipated energy.
     """
-    # Calculate the derivative of the dissipated energy. 
-    # The derivative cancels the integral.
+    # Calculate the derivative of the dissipated energy. Taking the derivative 
+    # cancels the integral.
     dot_varepsilon = (1-alpha)*k*z*v
     return dot_varepsilon
 
@@ -123,7 +125,7 @@ def simulate_ODE(params, ode_system, method="LSODA"):
         t (numpy.ndarray): 
             Time vector where the solution is computed. 
         sol_dense (numpy.ndarray): 
-            Dense solution matrix from solve_ivp. [x_1, x_2, ... x_n]
+            Dense solution matrix from solve_ivp. [x_1, x_2, ... x_n].
     """
     # Extract time span and initial conditions
     t_span = params['t_span']
@@ -149,3 +151,6 @@ def simulate_ODE(params, ode_system, method="LSODA"):
     sol_dense = solution.sol(t)
     
     return t, sol_dense
+
+
+# Fin :)

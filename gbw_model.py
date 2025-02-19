@@ -18,7 +18,6 @@ Date:
 
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.integrate import solve_ivp
 
 from functions import store_data, save_image, plot_hysteresis
 
@@ -29,16 +28,20 @@ from dynamics_functions import simulate_ODE
 
 def calculate_psi(X, betas):
     """
-    Calculates the shape functions psi
+    This function calculates the shape functions psi.
 
     Args:
-        x (_type_): _description_
-        v (_type_): _description_
-        z (_type_): _description_
-        betas (_type_): _description_
+        X (numpy.ndarray): 
+            State matrix of the system:
+            X[0] = x, displacement.
+            X[1] = v, velocity.
+            X[2] = z, hysteretic displacement
+		betas (list): 
+            A list with the beta_i parameters of the shape function for the GBW.
 
     Returns:
-        _type_: _description_
+        psi (numpy.ndarray): 
+            Vector with the values for the psi function for each instant.
     """
     # UNpack the state
     x, v, z = X
@@ -52,7 +55,8 @@ def calculate_psi(X, betas):
 
 
 def gbw_model(t, X, params):
-    """This functions returns the ODE of the generalized Bouc-Wen model by Son 
+    """
+    This functions returns the ODE of the generalized Bouc-Wen model by Son 
     and Der Kiureghian (2006). The restoring force is considered to be the standard one: the paralel 
     action of a elastic spring and a hysteretic one.
     
@@ -77,9 +81,8 @@ def gbw_model(t, X, params):
     
     # Unpack the states
     x, v, z = X
-    
-    t_span  = params["t_span"]  # time interval of the simulation.
-    X_0     = params["X_0"]     # Initial state.
+    # Timse span of the simulation.
+    t_span  = params["t_span"]  
     
     # Unpack the parameters.
     m     = params["m"] 
@@ -111,7 +114,7 @@ def gbw_model(t, X, params):
     return [dxdt, dvdt, dzdt]
 
 
-# Run example
+# Run example.
 if __name__ == "__main__":
 
     # This parameters are extracted from the original WGBW paper.
@@ -140,17 +143,17 @@ if __name__ == "__main__":
     # }
     
     params = {
-        "m": 1,          
-        "c": 0.1,           
-        "k": 1,          
-        "f0": 2,          
-        "omega": 1,      
-        "b": 0.1,            
-        "t_span": [0, 60],  
-        "alpha": 0.01,      
-        "n": 1,           
-        "A": 1.0,           
-        "betas": [           
+        "m"      : 1,          
+        "c"      : 0.1,           
+        "k"      : 1,          
+        "f0"     : 2,          
+        "omega"  : 1,      
+        "b"      : 0.1,            
+        "t_span" : [0, 60],  
+        "alpha"  : 0.01,      
+        "n"      : 1,           
+        "A"      : 1.0,           
+        "betas"  : [           
              0.470,           
             -0.118,           
              0.029,           
@@ -158,7 +161,7 @@ if __name__ == "__main__":
             -0.121,           
             -0.112,               
         ],           
-        "X_0" : np.zeros(3) 
+        "X_0"    : np.zeros(3) 
     }
 
     # Simulate the GBW model.
