@@ -35,12 +35,11 @@ Date:
 
 
 import numpy as np
-import matplotlib.pyplot as plt
-
 import pysindy as ps
 from sklearn.linear_model import Lasso
 
 from functions import plot_comparatives_3, save_image
+from abs_smooth_approximation import abs_smooth_approximation
 
 
 def simulate_sindy_model(
@@ -61,15 +60,16 @@ def simulate_sindy_model(
         t (array): 
             Time vector.
         ft_lbs (dic): 
-            Its keys (string) are the coded names of the feature library.
+            - Its keys (string) are the coded names of the feature library.
             - Its values (pysindy objects) are the ps.FeatureLibrary structure 
-            - with its own constraints.
+            with its own constraints.
         optimizer (str): default to "sltsq".
             The choosen optimizer to peform SINDy (stlsq, lasso).
         control_u (numpy.ndarray): default to False.
             Control vector: external excitation or contorl input. 
-        store (boolean): defaul to False.
-            Wether or no to store the plot.
+        store (str): defaul to False.
+            Wether or no to store the plot. To store it, the directory folder 
+            name must be given.
     
     """
     for ft_lb_key, ft_lb_val in ft_lbs.items():
@@ -111,20 +111,109 @@ def simulate_sindy_model(
             X.T, X_sindy.T, t, xylabels=["x(t)", "fr(t)", "t"], title=ft_lb_key
             )
         
-        if store:
-            save_image(fig, ft_lb_key, directory="sindy_plots_2")
+        if store is not False:
+            save_image(fig, ft_lb_key, directory=store)
 
 
-def build_polynomial_libraries():
-    pass
+def build_pos_polynomial_libraries():
+    """
+    This function build possible polynomial libraries to try the SINDY 
+    identification process, taking into consideration polynoials up to 3rd 
+    degree and wether bias and terms interaction is accoutnable.  
 
-def build_fourier_libraries():
-    pass
+    Returns:
+        (dict): 
+            dictionary with the possible polynomial feature libraries. 
+            - Its keys (string) are the coded names of the feature library.
+            - Its values (pysindy objects) are the ps.FeatureLibrary structure 
+            with its own constraints.
+    """
+    # Argument options for Polynomial Library
+    pos_pol_degress = range(1,4)            # Possible degrees
+    pos_bias =  [True, False]               # Possible bias 
+    pos_interaction = [True, False]         # Possible terms interaction
 
-def build_custom_libraries():
-    pass
+    # Define the possible polynomial feature libraries
+    poly_feature_libraries = {}
+
+    # Store the possible combinations of polynomial libraries.
+    for i in pos_interaction:
+        for j in pos_bias:
+            for n in pos_pol_degress:
+                poly_feature_libraries[f"FL_pol_n{n}_b{j}_i{i}"] = ps.PolynomialLibrary(
+                    degree=n, 
+                    include_interaction=i, 
+                    include_bias=j
+                    )
+    
+    return poly_feature_libraries
+
+def build_pos_fourier_libraries():
+    """
+    This function build possible Fourier libraries to try the SINDY 
+    identification process, taking into consideration up to 4 frequencies.
+
+    Returns:
+        (dict): 
+            dictionary with the possible Fourier feature libraries. 
+            - Its keys (string) are the coded names of the feature library.
+            - Its values (pysindy objects) are the ps.FeatureLibrary structure 
+            with its own constraints.
+    """
+    # Arguments options for the Fourier Library
+    pos_freq = range(1,5)                   # Possible frequencies
+    # Define the possible polynomial feature libraries
+    four_feature_libraries = {}
+
+    # Considers both sine and cosine terms.
+    for freq in pos_freq:
+        four_feature_libraries[f"FL_fr_n{freq}"] = ps.FourierLibrary(
+            n_frequencies=freq
+            )
+    
+    return four_feature_libraries
+
+def build_pos_custom_library():
+    """
+    This function builds custom lñibrary to try the SINDY 
+    identification process, taking into consideration the functions: absolute 
+    value (approx), sign (approx), exponential, sin(A+B), cos(A+B).  
+
+    Returns:
+        (dict): 
+            dictionary with the custom feature library. 
+            - Its key (string) is the coded name of the feature library.
+            - Its value (pysindy object) is the ps.FeatureLibrary structure.
+    """
+    # Functions for Custom Library
+    pos_custom_functions = [                   # Names, if not given above. 
+        lambda x: abs_smooth_approximation(x), # f1(.) --> Absolute value.
+        lambda x: np.tanh(10*x),               # f2(.) --> Sign function approx.
+        lambda x: np.exp(x),                   # f3(.) --> Exponential function. 
+        #lambda x: 1/x,                         # f4(.) --> 1/x  
+        lambda x, y: np.sin(x + y),            # f5(.) --> Sin of A + B 
+        lambda x, y: np.cos(x + y),            # f6(.) --> Cos of A + B 
+    ]
+
+    # Names for the functions.
+    pos_custom_fun_names = [
+        lambda x: "abs(" + x + ")",
+        lambda x: "sgn(" + x + ")",
+        lambda x: "exp(" + x + ")",
+        #lambda x: "1/" + x,
+        lambda x, y: "sin(" + x + "," + y + ")",
+        lambda x, y: "cos(" + x + "," + y + ")"
+    ]
+    
+    # Define the possible custom functions without a given name.
+    cust_feature_library = {} 
+    cust_feature_library["FL_cus"] = ps.CustomLibrary(
+        library_functions=pos_custom_functions,
+        function_names=pos_custom_fun_names,
+        interaction_only=False # to consider all types of cominations
+        )
+    
+    return cust_feature_library
 
  
-
-
 # Fin :)

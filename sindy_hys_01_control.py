@@ -37,35 +37,27 @@ Date:
 """
 
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-
 import pysindy as ps
-from sklearn.linear_model import Lasso
 
 # Custom functions
-from abs_smooth_approximation import abs_smooth_approximation
 from sindy_implementation_functions import simulate_sindy_model
+from sindy_implementation_functions import build_pos_custom_library
 
-import time
 
 # -----
 # Load the data and work with it.
 
-# Load the .txt file.
+# Load the .txt file and read the data
 file_path = "./results_data/hys--simulation-01.txt"
+data      = np.loadtxt(file_path, skiprows=1)
 
-# Read the file, in this case the columns are separated by spaces.
-#data = pd.read_csv(file_path, delim_whitespace=True)  
-data = pd.read_csv(file_path, sep='\s+')
-
-# Extract columns. 		 
-x  = data.iloc[:, 0].values     # displacement [mm] 
-fr = data.iloc[:, 1].values     # restoring force [kN] 
-t  = data.iloc[:, 2].values     # time [s]
+# Unpack the state measurements.
+x   = data[:, 0]     # displacement [mm] 
+f_r = data[:, 1]     # restoring force [kN] 
+t   = data[:, 2]     # time [s]
 
 # Build the state variables vector.
-X = np.column_stack([x, fr])
+X = np.column_stack([x, f_r])
 
 # Set the initial conditions.
 X_0 = np.array([0, 0])
@@ -78,50 +70,20 @@ X_0 = np.array([0, 0])
 # - Custom functions: abs, sign, exp, sin(a+b), cos(a+b)
 feature_libraries = {}
 
-# Functions for Custom Library
-pos_custom_functions = [                   # Names, if not given above. 
-    lambda x: abs_smooth_approximation(x), # f1(.) --> Absolute value.
-    lambda x: np.tanh(10*x),               # f2(.) --> Sign function approx.
-    lambda x: np.exp(x),                   # f3(.) --> Exponential function. 
-    #lambda x: 1/x,                         # f4(.) --> 1/x  
-    lambda x, y: np.sin(x + y),            # f5(.) --> Sin of A + B 
-    lambda x, y: np.cos(x + y),            # f6(.) --> Cos of A + B 
-]
-
-pos_custom_fun_names = [
-    lambda x: "abs(" + x + ")",
-    lambda x: "sgn(" + x + ")",
-    lambda x: "exp(" + x + ")",
-    #lambda x: "1/" + x,
-    lambda x, y: "sin(" + x + "," + y + ")",
-    lambda x, y: "cos(" + x + "," + y + ")"
-]
+# Build the custom library.
+custom_library = build_pos_custom_library()
 
 # Define the feature libraries (include the control _c).
 feature_libraries["poly_c"] = ps.PolynomialLibrary(degree=2)
 feature_libraries["four_c"] = ps.FourierLibrary(n_frequencies=3)
-feature_libraries["cust_c"] = ps.CustomLibrary(
-    library_functions=pos_custom_functions,
-    function_names=pos_custom_fun_names,
-    interaction_only=False # to consider all types of cominations
-    )
-
-# -----
+feature_libraries["cust_c"] = custom_library["FL_cus"]
+ 
 # Perform the test.
-
-# Star to measure time.
-time_0 = time.time()
-
 print("\n----- BEGINS -----")
 simulate_sindy_model(
-    X, X_0, t, feature_libraries, optimizer="stlsq", control_u=fr, store=False
+    X, X_0, t, feature_libraries, optimizer="stlsq", control_u=f_r
     )
 print("\n----- ENDS -----")
-
-# Stops timer.
-time_f = time.time()
-total_time = time_f-time_0
-print(f"TIME USED: {total_time} seconds")
 
 
 # Fin :)
