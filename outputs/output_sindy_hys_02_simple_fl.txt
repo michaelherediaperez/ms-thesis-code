@@ -1,0 +1,241 @@
+
+-----
+
+Used library: FL_pol_n1_bTrue_iTrue
+
+The model:
+(x0)' = -2.975 1 + -0.345 x0 + 16.451 x1
+(x1)' = -0.240 1 + -0.050 x0 + 0.499 x1
+
+The score:
+0.4765849599750302
+
+The names:
+['1', 'x0', 'x1']
+
+-----
+
+Used library: FL_pol_n2_bTrue_iTrue
+
+The model:
+(x0)' = -1.703 1 + -0.366 x0 + 16.185 x1 + -0.057 x0 x1 + -0.904 x1^2
+(x1)' = -0.091 1 + -0.051 x0 + 0.487 x1 + -0.160 x1^2
+
+The score:
+0.4809070094464881
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x0 x1', 'x1^2']
+
+-----
+
+Used library: FL_pol_n3_bTrue_iTrue
+
+The model:
+(x0)' = -0.064 1 + -0.382 x0 + -5.716 x1 + -0.039 x0 x1 + -2.376 x1^2 + -0.421 x0 x1^2 + 23.545 x1^3
+(x1)' = -0.327 1 + -0.141 x0 + -2.299 x1 + 0.298 x1^2 + 0.042 x0 x1^2 + 2.492 x1^3
+
+The score:
+0.671832467927717
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x0 x1', 'x1^2', 'x0^3', 'x0^2 x1', 'x0 x1^2', 'x1^3']
+
+-----
+
+Used library: FL_pol_n1_bFalse_iTrue
+
+The model:
+(x0)' = -0.298 x0 + 16.137 x1
+(x1)' = -0.046 x0 + 0.474 x1
+
+The score:
+0.4482514584951555
+
+The names:
+['x0', 'x1']
+
+-----
+
+Used library: FL_pol_n2_bFalse_iTrue
+
+The model:
+(x0)' = -0.364 x0 + 16.133 x1 + -0.023 x0 x1 + -2.742 x1^2
+(x1)' = -0.051 x0 + 0.479 x1 + -0.237 x1^2
+
+The score:
+0.4797403562396209
+
+The names:
+['x0', 'x1', 'x0^2', 'x0 x1', 'x1^2']
+
+-----
+
+Used library: FL_pol_n3_bFalse_iTrue
+
+The model:
+(x0)' = -0.382 x0 + -5.751 x1 + -0.038 x0 x1 + -2.445 x1^2 + -0.421 x0 x1^2 + 23.581 x1^3
+(x1)' = -0.138 x0 + -2.528 x1 + 0.012 x1^2 + 0.033 x0 x1^2 + 2.735 x1^3
+
+The score:
+0.6670753032274355
+
+The names:
+['x0', 'x1', 'x0^2', 'x0 x1', 'x1^2', 'x0^3', 'x0^2 x1', 'x0 x1^2', 'x1^3']
+
+-----
+
+Used library: FL_pol_n1_bTrue_iFalse
+
+The model:
+(x0)' = -2.975 1 + -0.345 x0 + 16.451 x1
+(x1)' = -0.240 1 + -0.050 x0 + 0.499 x1
+
+The score:
+0.4765849599750302
+
+The names:
+['1', 'x0', 'x1']
+
+-----
+
+Used library: FL_pol_n2_bTrue_iFalse
+
+The model:
+(x0)' = -0.810 1 + -0.359 x0 + 16.271 x1 + -2.335 x1^2
+(x1)' = -0.240 1 + -0.050 x0 + 0.499 x1
+
+The score:
+0.4788491117269042
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x1^2']
+
+-----
+
+Used library: FL_pol_n3_bTrue_iFalse
+
+The model:
+(x0)' = -1.039 1 + -0.566 x0 + 5.172 x1 + -1.532 x1^2 + 10.797 x1^3
+(x1)' = -0.172 1 + -0.124 x0 + -3.427 x1 + 0.123 x1^2 + 3.807 x1^3
+
+The score:
+0.6527429050621145
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x1^2', 'x0^3', 'x1^3']
+
+-----
+
+Used library: FL_pol_n1_bFalse_iFalse
+
+The model:
+(x0)' = -0.298 x0 + 16.137 x1
+(x1)' = -0.046 x0 + 0.474 x1
+
+The score:
+0.4482514584951555
+
+The names:
+['x0', 'x1']
+
+-----
+
+Used library: FL_pol_n2_bFalse_iFalse
+
+The model:
+(x0)' = -0.360 x0 + 16.200 x1 + -3.019 x1^2
+(x1)' = -0.051 x0 + 0.479 x1 + -0.237 x1^2
+
+The score:
+0.47957954481114773
+
+The names:
+['x0', 'x1', 'x0^2', 'x1^2']
+
+-----
+
+Used library: FL_pol_n3_bFalse_iFalse
+
+The model:
+(x0)' = -0.566 x0 + 5.181 x1 + -2.413 x1^2 + 10.700 x1^3
+(x1)' = -0.124 x0 + -3.425 x1 + -0.023 x1^2 + 3.791 x1^3
+
+The score:
+0.6508747754945743
+
+The names:
+['x0', 'x1', 'x0^2', 'x1^2', 'x0^3', 'x1^3']
+
+-----
+
+Used library: FL_fr_n1
+
+The model:
+(x0)' = -3.537 sin(1 x0) + 0.957 cos(1 x0) + 17.404 sin(1 x1) + -2.649 cos(1 x1)
+(x1)' = -0.494 sin(1 x0) + 0.063 cos(1 x0) + 0.164 sin(1 x1) + -0.081 cos(1 x1)
+
+The score:
+0.3543637209071999
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)']
+
+-----
+
+Used library: FL_fr_n2
+
+The model:
+(x0)' = -3.753 sin(1 x0) + 0.343 cos(1 x0) + 10.750 sin(1 x1) + -2.876 cos(1 x1) + 0.229 sin(2 x0) + 0.039 cos(2 x0) + 6.667 sin(2 x1) + 2.469 cos(2 x1)
+(x1)' = -0.497 sin(1 x0) + 0.061 cos(1 x0) + -0.118 sin(1 x1) + -0.134 cos(1 x1) + 0.114 sin(2 x0) + 0.134 cos(2 x0) + 0.310 sin(2 x1) + -0.078 cos(2 x1)
+
+The score:
+0.36641354355322553
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)']
+
+-----
+
+Used library: FL_fr_n3
+
+The model:
+(x0)' = -3.546 sin(1 x0) + 0.463 cos(1 x0) + -14.457 sin(1 x1) + -4.764 cos(1 x1) + 0.251 sin(2 x0) + 0.061 cos(2 x0) + 32.763 sin(2 x1) + 7.158 cos(2 x1) + 0.961 sin(3 x0) + -0.275 cos(3 x0) + -12.459 sin(3 x1) + -3.181 cos(3 x1)
+(x1)' = -0.508 sin(1 x0) + 0.073 cos(1 x0) + 2.163 sin(1 x1) + -0.145 cos(1 x1) + 0.098 sin(2 x0) + 0.150 cos(2 x0) + -2.078 sin(2 x1) + -0.159 cos(2 x1) + -0.021 sin(3 x0) + -0.071 cos(3 x0) + 1.194 sin(3 x1) + 0.006 cos(3 x1)
+
+The score:
+0.3739166852383873
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)', 'sin(3 x0)', 'cos(3 x0)', 'sin(3 x1)', 'cos(3 x1)']
+
+-----
+
+Used library: FL_fr_n4
+
+The model:
+(x0)' = -3.645 sin(1 x0) + 0.616 cos(1 x0) + 144.540 sin(1 x1) + 5.299 cos(1 x1) + 0.260 sin(2 x0) + 0.122 cos(2 x0) + -163.453 sin(2 x1) + -15.881 cos(2 x1) + 1.001 sin(3 x0) + -0.105 cos(3 x0) + 108.046 sin(3 x1) + 18.142 cos(3 x1) + -0.432 sin(4 x0) + 0.177 cos(4 x0) + -37.009 sin(4 x1) + -8.244 cos(4 x1)
+(x1)' = -0.502 sin(1 x0) + 0.066 cos(1 x0) + -2.086 sin(1 x1) + -0.363 cos(1 x1) + 0.098 sin(2 x0) + 0.150 cos(2 x0) + 3.190 sin(2 x1) + 0.292 cos(2 x1) + -0.019 sin(3 x0) + -0.088 cos(3 x0) + -2.063 sin(3 x1) + -0.415 cos(3 x1) + 0.075 sin(4 x0) + 0.045 cos(4 x0) + 1.017 sin(4 x1) + 0.149 cos(4 x1)
+
+The score:
+0.3797847226919977
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)', 'sin(3 x0)', 'cos(3 x0)', 'sin(3 x1)', 'cos(3 x1)', 'sin(4 x0)', 'cos(4 x0)', 'sin(4 x1)', 'cos(4 x1)']
+
+-----
+
+Used library: FL_cus
+
+The model:
+(x0)' = 0.066 abs(x0) + -27.414 abs(x1) + -5.124 sgn(x0) + -3.679 sgn(x1) + 12.563 exp(x1) + 0.640 sin(x0,x0) + 5.649 sin(x1,x1) + -0.360 cos(x0,x0) + 0.523 cos(x0,x1) + -7.844 cos(x1,x1)
+(x1)' = -0.963 abs(x1) + -0.836 sgn(x0) + 1.415 sgn(x1) + 0.504 exp(x1) + 0.166 sin(x0,x0) + -0.033 sin(x0,x1) + -1.942 sin(x1,x1) + 0.089 cos(x0,x0) + 0.018 cos(x0,x1) + -0.506 cos(x1,x1)
+
+The score:
+0.44493459387236056
+
+The names:
+['abs(x0)', 'abs(x1)', 'sgn(x0)', 'sgn(x1)', 'exp(x0)', 'exp(x1)', 'sin(x0,x0)', 'sin(x0,x1)', 'sin(x1,x1)', 'cos(x0,x0)', 'cos(x0,x1)', 'cos(x1,x1)']
+
+----- ENDS -----
+TIME USED: 32.625088691711426 seconds

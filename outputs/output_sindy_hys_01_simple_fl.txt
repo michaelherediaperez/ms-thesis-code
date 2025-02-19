@@ -1,0 +1,275 @@
+
+-----
+
+Used library: FL_pol_n1_bTrue_iTrue
+
+The model:
+(x0)' = -0.013 1 + -3.321 x0 + 9.524 x1
+(x1)' = -1.299 x0 + 3.457 x1
+
+The score:
+0.8459079278391338
+
+The names:
+['1', 'x0', 'x1']
+Figure saved to: sindy_plots/FL_pol_n1_bTrue_iTrue.pdf
+Figure saved to: sindy_plots/FL_pol_n1_bTrue_iTrue.svg
+
+-----
+
+Used library: FL_pol_n2_bTrue_iTrue
+
+The model:
+(x0)' = -0.036 1 + -3.400 x0 + 9.749 x1 + 0.754 x0^2 + -4.833 x0 x1 + 7.596 x1^2
+(x1)' = -1.314 x0 + 3.509 x1 + 0.047 x0^2 + -0.844 x0 x1 + 1.944 x1^2
+
+The score:
+0.8520137231365638
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x0 x1', 'x1^2']
+Figure saved to: sindy_plots/FL_pol_n2_bTrue_iTrue.pdf
+Figure saved to: sindy_plots/FL_pol_n2_bTrue_iTrue.svg
+
+-----
+
+Used library: FL_pol_n3_bTrue_iTrue
+
+The model:
+(x0)' = -4.548 x0 + 10.996 x1 + -0.083 x0^2 + 0.081 x0 x1 + 0.390 x1^2 + 11.677 x0^3 + -89.576 x0^2 x1 + 228.206 x0 x1^2 + -174.932 x1^3
+(x1)' = -2.109 x0 + 5.101 x1 + 0.009 x0^2 + 0.056 x0 x1 + -0.196 x1^2 + 4.506 x0^3 + -38.988 x0^2 x1 + 118.755 x0 x1^2 + -119.378 x1^3
+
+The score:
+0.9485969701576515
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x0 x1', 'x1^2', 'x0^3', 'x0^2 x1', 'x0 x1^2', 'x1^3']
+Figure saved to: sindy_plots/FL_pol_n3_bTrue_iTrue.pdf
+Figure saved to: sindy_plots/FL_pol_n3_bTrue_iTrue.svg
+
+-----
+
+Used library: FL_pol_n1_bFalse_iTrue
+
+The model:
+(x0)' = -3.329 x0 + 9.546 x1
+(x1)' = -1.299 x0 + 3.457 x1
+
+The score:
+0.8456620948648658
+
+The names:
+['x0', 'x1']
+Figure saved to: sindy_plots/FL_pol_n1_bFalse_iTrue.pdf
+Figure saved to: sindy_plots/FL_pol_n1_bFalse_iTrue.svg
+
+-----
+
+Used library: FL_pol_n2_bFalse_iTrue
+
+The model:
+(x0)' = -3.377 x0 + 9.686 x1 + 0.429 x0^2 + -3.115 x0 x1 + 5.026 x1^2
+(x1)' = -1.314 x0 + 3.509 x1 + 0.047 x0^2 + -0.844 x0 x1 + 1.944 x1^2
+
+The score:
+0.8513137703316125
+
+The names:
+['x0', 'x1', 'x0^2', 'x0 x1', 'x1^2']
+Figure saved to: sindy_plots/FL_pol_n2_bFalse_iTrue.pdf
+Figure saved to: sindy_plots/FL_pol_n2_bFalse_iTrue.svg
+
+-----
+
+Used library: FL_pol_n3_bFalse_iTrue
+
+The model:
+(x0)' = -4.548 x0 + 10.996 x1 + -0.083 x0^2 + 0.081 x0 x1 + 0.390 x1^2 + 11.677 x0^3 + -89.576 x0^2 x1 + 228.206 x0 x1^2 + -174.932 x1^3
+(x1)' = -2.109 x0 + 5.101 x1 + 0.009 x0^2 + 0.056 x0 x1 + -0.196 x1^2 + 4.506 x0^3 + -38.988 x0^2 x1 + 118.755 x0 x1^2 + -119.378 x1^3
+
+The score:
+0.9485969701576515
+
+The names:
+['x0', 'x1', 'x0^2', 'x0 x1', 'x1^2', 'x0^3', 'x0^2 x1', 'x0 x1^2', 'x1^3']
+Figure saved to: sindy_plots/FL_pol_n3_bFalse_iTrue.pdf
+Figure saved to: sindy_plots/FL_pol_n3_bFalse_iTrue.svg
+
+-----
+
+Used library: FL_pol_n1_bTrue_iFalse
+
+The model:
+(x0)' = -0.013 1 + -3.321 x0 + 9.524 x1
+(x1)' = -1.299 x0 + 3.457 x1
+
+The score:
+0.8459079278391338
+
+The names:
+['1', 'x0', 'x1']
+Figure saved to: sindy_plots/FL_pol_n1_bTrue_iFalse.pdf
+Figure saved to: sindy_plots/FL_pol_n1_bTrue_iFalse.svg
+
+-----
+
+Used library: FL_pol_n2_bTrue_iFalse
+
+The model:
+(x0)' = -3.321 x0 + 9.541 x1 + -0.196 x0^2 + 1.267 x1^2
+(x1)' = -1.299 x0 + 3.470 x1 + -0.122 x0^2 + 0.925 x1^2
+
+The score:
+0.8501656408510794
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x1^2']
+Figure saved to: sindy_plots/FL_pol_n2_bTrue_iFalse.pdf
+Figure saved to: sindy_plots/FL_pol_n2_bTrue_iFalse.svg
+
+-----
+
+Used library: FL_pol_n3_bTrue_iFalse
+
+The model:
+(x0)' = -3.408 x0 + 7.998 x1 + -0.120 x0^2 + 0.924 x1^2 + -0.408 x0^3 + 26.238 x1^3
+(x1)' = -1.511 x0 + 3.316 x1 + -0.077 x0^2 + 0.630 x1^2 + 0.103 x0^3 + 4.922 x1^3
+
+The score:
+0.9246006258876408
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x1^2', 'x0^3', 'x1^3']
+Figure saved to: sindy_plots/FL_pol_n3_bTrue_iFalse.pdf
+Figure saved to: sindy_plots/FL_pol_n3_bTrue_iFalse.svg
+
+-----
+
+Used library: FL_pol_n1_bFalse_iFalse
+
+The model:
+(x0)' = -3.329 x0 + 9.546 x1
+(x1)' = -1.299 x0 + 3.457 x1
+
+The score:
+0.8456620948648658
+
+The names:
+['x0', 'x1']
+Figure saved to: sindy_plots/FL_pol_n1_bFalse_iFalse.pdf
+Figure saved to: sindy_plots/FL_pol_n1_bFalse_iFalse.svg
+
+-----
+
+Used library: FL_pol_n2_bFalse_iFalse
+
+The model:
+(x0)' = -3.321 x0 + 9.541 x1 + -0.196 x0^2 + 1.267 x1^2
+(x1)' = -1.299 x0 + 3.470 x1 + -0.122 x0^2 + 0.925 x1^2
+
+The score:
+0.8501656408510794
+
+The names:
+['x0', 'x1', 'x0^2', 'x1^2']
+Figure saved to: sindy_plots/FL_pol_n2_bFalse_iFalse.pdf
+Figure saved to: sindy_plots/FL_pol_n2_bFalse_iFalse.svg
+
+-----
+
+Used library: FL_pol_n3_bFalse_iFalse
+
+The model:
+(x0)' = -3.408 x0 + 7.998 x1 + -0.120 x0^2 + 0.924 x1^2 + -0.408 x0^3 + 26.238 x1^3
+(x1)' = -1.511 x0 + 3.316 x1 + -0.077 x0^2 + 0.630 x1^2 + 0.103 x0^3 + 4.922 x1^3
+
+The score:
+0.9246006258876408
+
+The names:
+['x0', 'x1', 'x0^2', 'x1^2', 'x0^3', 'x1^3']
+Figure saved to: sindy_plots/FL_pol_n3_bFalse_iFalse.pdf
+Figure saved to: sindy_plots/FL_pol_n3_bFalse_iFalse.svg
+
+-----
+
+Used library: FL_fr_n1
+
+The model:
+(x0)' = -3.912 sin(1 x0) + 0.066 cos(1 x0) + 9.943 sin(1 x1) + -0.072 cos(1 x1)
+(x1)' = -1.571 sin(1 x0) + 3.711 sin(1 x1)
+
+The score:
+0.8938015062148708
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)']
+Figure saved to: sindy_plots/FL_fr_n1.pdf
+Figure saved to: sindy_plots/FL_fr_n1.svg
+
+-----
+
+Used library: FL_fr_n2
+
+The model:
+(x0)' = -6.370 sin(1 x0) + 1.894 cos(1 x0) + 71.318 sin(1 x1) + -1.531 cos(1 x1) + 1.590 sin(2 x0) + -0.615 cos(2 x0) + -31.775 sin(2 x1) + 0.219 cos(2 x1)
+(x1)' = -1.904 sin(1 x0) + 0.169 cos(1 x0) + 15.221 sin(1 x1) + 0.271 cos(1 x1) + 0.207 sin(2 x0) + -5.968 sin(2 x1) + -0.448 cos(2 x1)
+
+The score:
+0.9294052702177564
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)']
+Figure saved to: sindy_plots/FL_fr_n2.pdf
+Figure saved to: sindy_plots/FL_fr_n2.svg
+
+-----
+
+Used library: FL_fr_n3
+
+The model:
+(x0)' = -8.883 sin(1 x0) + 12.595 cos(1 x0) + 1196.443 sin(1 x1) + -8.993 cos(1 x1) + 3.841 sin(2 x0) + -5.834 cos(2 x0) + -950.903 sin(2 x1) + -0.663 sin(3 x0) + 1.210 cos(3 x0) + 237.978 sin(3 x1) + 0.996 cos(3 x1)
+(x1)' = -2.893 sin(1 x0) + 5.300 cos(1 x0) + 354.968 sin(1 x1) + -0.147 cos(1 x1) + 1.115 sin(2 x0) + -2.435 cos(2 x0) + -283.445 sin(2 x1) + -5.803 cos(2 x1) + -0.285 sin(3 x0) + 0.542 cos(3 x0) + 71.814 sin(3 x1) + 2.541 cos(3 x1)
+
+The score:
+0.9370492262228594
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)', 'sin(3 x0)', 'cos(3 x0)', 'sin(3 x1)', 'cos(3 x1)']
+Figure saved to: sindy_plots/FL_fr_n3.pdf
+Figure saved to: sindy_plots/FL_fr_n3.svg
+
+-----
+
+Used library: FL_fr_n4
+
+The model:
+(x0)' = -15.809 sin(1 x0) + 68.575 cos(1 x0) + 61419.635 sin(1 x1) + -813.030 cos(1 x1) + 11.093 sin(2 x0) + -39.553 cos(2 x0) + -62120.194 sin(2 x1) + 1552.119 cos(2 x1) + -3.969 sin(3 x0) + 14.244 cos(3 x0) + 27145.987 sin(3 x1) + -1012.461 cos(3 x1) + 0.562 sin(4 x0) + -2.458 cos(4 x0) + -4652.372 sin(4 x1) + 232.548 cos(4 x1)
+(x1)' = -4.104 sin(1 x0) + 5.023 cos(1 x0) + 12164.316 sin(1 x1) + 2.393 sin(2 x0) + -2.358 cos(2 x0) + -12281.090 sin(2 x1) + -5.873 cos(2 x1) + -0.877 sin(3 x0) + 0.553 cos(3 x0) + 5351.565 sin(3 x1) + 2.815 cos(3 x1) + 0.103 sin(4 x0) + -0.008 cos(4 x0) + -913.372 sin(4 x1) + -0.151 cos(4 x1)
+
+The score:
+0.9416755881876478
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)', 'sin(3 x0)', 'cos(3 x0)', 'sin(3 x1)', 'cos(3 x1)', 'sin(4 x0)', 'cos(4 x0)', 'sin(4 x1)', 'cos(4 x1)']
+Figure saved to: sindy_plots/FL_fr_n4.pdf
+Figure saved to: sindy_plots/FL_fr_n4.svg
+
+-----
+
+Used library: FL_cus
+
+The model:
+(x0)' = -0.412 abs(x0) + 0.048 abs(x1) + -0.031 sgn(x0) + -0.093 sgn(x1) + 3.873 exp(x0) + -2.367 exp(x1) + 7.044 sin(x0,x0) + -21.083 sin(x0,x1) + 16.479 sin(x1,x1) + -3.841 cos(x0,x0) + 11.705 cos(x0,x1) + -9.430 cos(x1,x1)
+(x1)' = -0.167 abs(x0) + -0.280 abs(x1) + -0.040 sgn(x0) + 0.090 sgn(x1) + 1.557 exp(x0) + -0.511 exp(x1) + 2.500 sin(x0,x0) + -7.870 sin(x0,x1) + 5.666 sin(x1,x1) + -1.325 cos(x0,x0) + 4.308 cos(x0,x1) + -4.044 cos(x1,x1)
+
+The score:
+0.9490118132611928
+
+The names:
+['abs(x0)', 'abs(x1)', 'sgn(x0)', 'sgn(x1)', 'exp(x0)', 'exp(x1)', 'sin(x0,x0)', 'sin(x0,x1)', 'sin(x1,x1)', 'cos(x0,x0)', 'cos(x0,x1)', 'cos(x1,x1)']
+Figure saved to: sindy_plots/FL_cus.pdf
+Figure saved to: sindy_plots/FL_cus.svg
+
+----- ENDS -----
+TIME USED: 75.2781274318695 seconds

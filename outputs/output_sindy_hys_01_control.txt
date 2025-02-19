@@ -1,0 +1,45 @@
+
+-----
+
+Used library: poly_c
+
+The model:
+(x0)' = -0.036 1 + -3.400 x0 + 4.875 x1 + 4.875 u0 + 0.754 x0^2 + -2.416 x0 x1 + -2.416 x0 u0 + 2.532 x1^2 + 2.532 x1 u0 + 2.532 u0^2
+(x1)' = -0.017 1 + -1.325 x0 + 1.770 x1 + 1.770 u0 + 0.205 x0^2 + -0.838 x0 x1 + -0.838 x0 u0 + 1.063 x1^2 + 1.063 x1 u0 + 1.063 u0^2
+
+The score:
+0.8531887206637507
+
+The names:
+['1', 'x0', 'x1', 'u0', 'x0^2', 'x0 x1', 'x0 u0', 'x1^2', 'x1 u0', 'u0^2']
+
+-----
+
+Used library: four_c
+
+The model:
+(x0)' = -8.883 sin(1 x0) + 12.595 cos(1 x0) + 598.221 sin(1 x1) + -4.496 cos(1 x1) + 598.221 sin(1 u0) + -4.496 cos(1 u0) + 3.841 sin(2 x0) + -5.834 cos(2 x0) + -475.451 sin(2 x1) + -475.451 sin(2 u0) + -0.663 sin(3 x0) + 1.210 cos(3 x0) + 118.989 sin(3 x1) + 0.498 cos(3 x1) + 118.989 sin(3 u0) + 0.498 cos(3 u0)
+(x1)' = -2.893 sin(1 x0) + 5.300 cos(1 x0) + 177.484 sin(1 x1) + -0.073 cos(1 x1) + 177.484 sin(1 u0) + -0.073 cos(1 u0) + 1.115 sin(2 x0) + -2.435 cos(2 x0) + -141.723 sin(2 x1) + -2.901 cos(2 x1) + -141.723 sin(2 u0) + -2.901 cos(2 u0) + -0.285 sin(3 x0) + 0.542 cos(3 x0) + 35.907 sin(3 x1) + 1.271 cos(3 x1) + 35.907 sin(3 u0) + 1.271 cos(3 u0)
+
+The score:
+0.9370492262228591
+
+The names:
+['sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(1 u0)', 'cos(1 u0)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)', 'sin(2 u0)', 'cos(2 u0)', 'sin(3 x0)', 'cos(3 x0)', 'sin(3 x1)', 'cos(3 x1)', 'sin(3 u0)', 'cos(3 u0)']
+
+-----
+
+Used library: cust_c
+
+The model:
+(x0)' = -0.412 abs(x0) + 0.024 abs(x1) + 0.024 abs(u0) + -0.031 sgn(x0) + -0.047 sgn(x1) + -0.047 sgn(u0) + 3.873 exp(x0) + -1.184 exp(x1) + -1.184 exp(u0) + 7.044 sin(x0,x0) + -10.541 sin(x0,x1) + -10.541 sin(x0,u0) + 5.493 sin(x1,x1) + 5.493 sin(x1,u0) + 5.493 sin(u0,u0) + -3.841 cos(x0,x0) + 5.852 cos(x0,x1) + 5.852 cos(x0,u0) + -3.143 cos(x1,x1) + -3.143 cos(x1,u0) + -3.143 cos(u0,u0)
+(x1)' = -0.170 abs(x0) + -0.162 abs(x1) + -0.162 abs(u0) + 0.025 sgn(x1) + 0.025 sgn(u0) + 1.351 exp(x0) + -0.142 exp(x1) + -0.142 exp(u0) + 2.224 sin(x0,x0) + -3.611 sin(x0,x1) + -3.611 sin(x0,u0) + 1.775 sin(x1,x1) + 1.775 sin(x1,u0) + 1.775 sin(u0,u0) + -1.253 cos(x0,x0) + 1.977 cos(x0,x1) + 1.977 cos(x0,u0) + -1.262 cos(x1,x1) + -1.262 cos(x1,u0) + -1.262 cos(u0,u0)
+
+The score:
+0.9481832012847679
+
+The names:
+['abs(x0)', 'abs(x1)', 'abs(u0)', 'sgn(x0)', 'sgn(x1)', 'sgn(u0)', 'exp(x0)', 'exp(x1)', 'exp(u0)', 'sin(x0,x0)', 'sin(x0,x1)', 'sin(x0,u0)', 'sin(x1,x1)', 'sin(x1,u0)', 'sin(u0,u0)', 'cos(x0,x0)', 'cos(x0,x1)', 'cos(x0,u0)', 'cos(x1,x1)', 'cos(x1,u0)', 'cos(u0,u0)']
+
+----- ENDS -----
+TIME USED: 12.0593900680542 seconds

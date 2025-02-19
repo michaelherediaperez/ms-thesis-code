@@ -1,0 +1,69 @@
+-----
+
+Used library: FL_cus_poly_c
+
+The model:
+(x0)' = -0.553 abs(x0) + -2.599 abs(x1) + 0.009 sgn(x0) + -0.553 sgn(x1) + -10.892 exp(x0) + 9659.097 exp(x1) + 2.124 sin(x0,x0) + -10.963 sin(x0,x1) + 1258.346 sin(x1,x1) + 5.295 cos(x0,x0) + -31.167 cos(x0,x1) + -553.855 cos(x1,x1) + -9068.500 1 + 14.285 x0 + -12151.360 x1 + 3.223 x0^2 + -38.827 x0 x1 + -5935.594 x1^2
+(x1)' = -0.120 abs(x0) + -0.471 abs(x1) + -6.704 exp(x0) + 1029.173 exp(x1) + 3.213 sin(x0,x0) + -15.831 sin(x0,x1) + 153.475 sin(x1,x1) + 2.618 cos(x0,x0) + -14.079 cos(x0,x1) + -12.606 cos(x1,x1) + -998.418 1 + 14.625 x0 + -1316.453 x1 + 2.691 x0^2 + -17.907 x0 x1 + -542.237 x1^2
+
+The score:
+0.9636079802212048
+
+The names:
+['abs(x0)', 'abs(x1)', 'sgn(x0)', 'sgn(x1)', 'exp(x0)', 'exp(x1)', 'sin(x0,x0)', 'sin(x0,x1)', 'sin(x1,x1)', 'cos(x0,x0)', 'cos(x0,x1)', 'cos(x1,x1)', '1', 'x0', 'x1', 'x0^2', 'x0 x1', 'x1^2']
+
+Figure saved to: sindy_plots/FL_cus_poly_c.pdf
+Figure saved to: sindy_plots/FL_cus_poly_c.svg
+
+-----
+
+Used library: FL_cus_four_c
+
+The model:
+(x0)' = -0.510 abs(x0) + -3.626 abs(x1) + -0.600 sgn(x1) + 7.521 exp(x0) + -119.455 exp(x1) + 6.479 sin(x0,x0) + -11.433 sin(x0,x1) + -915.392 sin(x1,x1) + -1.977 cos(x0,x0) + 9.763 cos(x0,x1) + -46.346 cos(x1,x1) + -19.602 sin(1 x0) + 6.940 cos(1 x0) + 2405.831 sin(1 x1) + 191.851 cos(1 x1) + 6.479 sin(2 x0) + -1.977 cos(2 x0) + -915.392 sin(2 x1) + -46.346 cos(2 x1) + -1.930 sin(3 x0) + 466.904 sin(3 x1)
+(x1)' = -0.306 abs(x0) + 0.054 abs(x1) + 2.034 exp(x0) + -1279.856 exp(x1) + 1.407 sin(x0,x0) + -9.093 sin(x0,x1) + -411.705 sin(x1,x1) + 0.705 cos(x0,x0) + 4.727 cos(x0,x1) + -883.686 cos(x1,x1) + -5.820 cos(1 x0) + 2633.874 sin(1 x1) + 2703.995 cos(1 x1) + 1.407 sin(2 x0) + 0.705 cos(2 x0) + -411.705 sin(2 x1) + -883.686 cos(2 x1) + -0.669 cos(3 x0) + 101.819 sin(3 x1) + 341.538 cos(3 x1)
+
+The score:
+0.9557921824450071
+
+The names:
+['abs(x0)', 'abs(x1)', 'sgn(x0)', 'sgn(x1)', 'exp(x0)', 'exp(x1)', 'sin(x0,x0)', 'sin(x0,x1)', 'sin(x1,x1)', 'cos(x0,x0)', 'cos(x0,x1)', 'cos(x1,x1)', 'sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)', 'sin(3 x0)', 'cos(3 x0)', 'sin(3 x1)', 'cos(3 x1)']
+
+Figure saved to: sindy_plots/FL_cus_four_c.pdf
+Figure saved to: sindy_plots/FL_cus_four_c.svg
+
+-----
+
+Used library: FL_poly_four_c
+
+The model:
+(x0)' = 1497527.847 1 + -19.296 x0 + 458160.827 x1 + -15.634 x0^2 + -9.160 x0 x1 + -551555.149 x1^2 + 18.815 sin(1 x0) + -49.581 cos(1 x0) + -689579.990 sin(1 x1) + -1648623.234 cos(1 x1) + -0.904 sin(2 x0) + 3.649 cos(2 x0) + 139351.616 sin(2 x1) + 162954.791 cos(2 x1) + -0.402 sin(3 x0) + -15758.552 sin(3 x1) + -11813.517 cos(3 x1)
+(x1)' = -1183181.223 1 + -6.018 x0 + 59970.617 x1 + -4.579 x0 x1 + 431798.250 x1^2 + 6.142 sin(1 x0) + 1.995 cos(1 x0) + -90040.176 sin(1 x1) + 1307057.741 cos(1 x1) + -0.767 sin(2 x0) + -1.888 cos(2 x0) + 18062.276 sin(2 x1) + -134285.212 cos(2 x1) + -0.075 sin(3 x0) + 0.450 cos(3 x0) + -2017.105 sin(3 x1) + 10408.126 cos(3 x1)
+
+The score:
+0.9526697732724246
+
+The names:
+['1', 'x0', 'x1', 'x0^2', 'x0 x1', 'x1^2', 'sin(1 x0)', 'cos(1 x0)', 'sin(1 x1)', 'cos(1 x1)', 'sin(2 x0)', 'cos(2 x0)', 'sin(2 x1)', 'cos(2 x1)', 'sin(3 x0)', 'cos(3 x0)', 'sin(3 x1)', 'cos(3 x1)']
+
+Figure saved to: sindy_plots/FL_poly_four_c.pdf
+Figure saved to: sindy_plots/FL_poly_four_c.svg
+
+-----
+
+Used library: FL_cus_poly_t
+
+The model:
+(x0)' = -17.987 abs(x0) 1 + -24.971 abs(x0) x0 + 74.082 abs(x0) x1 + -22.699 abs(x0) x0^2 + -678.546 abs(x0) x0 x1 + 648.256 abs(x0) x1^2 + 47.213 abs(x1) 1 + 678.025 abs(x1) x0 + -2618.880 abs(x1) x1 + -137.952 abs(x1) x0^2 + 10856.278 abs(x1) x0 x1 + -33854.200 abs(x1) x1^2 + 1.111 sgn(x0) x0 + -1.348 sgn(x0) x1 + 15.154 sgn(x0) x0^2 + -32.970 sgn(x0) x0 x1 + 19.423 sgn(x0) x1^2 + -425.143 sgn(x1) 1 + 127.033 sgn(x1) x0 + -417.881 sgn(x1) x1 + -16.912 sgn(x1) x0^2 + -308.835 sgn(x1) x0 x1 + -15848.721 sgn(x1) x1^2 + 3297163.966 exp(x0) 1 + -823427.775 exp(x0) x0 + -15352259.507 exp(x0) x1 + -184216.903 exp(x0) x0^2 + 3521694.089 exp(x0) x0 x1 + 416043.080 exp(x0) x1^2 + -3126362.952 exp(x1) 1 + 1669506.752 exp(x1) x0 + 26466472.343 exp(x1) x1 + 1629783.071 exp(x1) x0^2 + 634215.248 exp(x1) x0 x1 + -12591710.067 exp(x1) x1^2 + -5934508.407 sin(x0,x0) 1 + 1109066.764 sin(x0,x0) x0 + -1595944.382 sin(x0,x0) x1 + 167460.441 sin(x0,x0) x0^2 + -1076932.545 sin(x0,x0) x0 x1 + 915461.241 sin(x0,x0) x1^2 + 1827662.855 sin(x0,x1) x1 + -2823249.632 sin(x0,x1) x0^2 + 3893468.264 sin(x0,x1) x0 x1 + -212002.788 sin(x0,x1) x1^2 + -4071012.634 sin(x1,x1) 1 + 10686762.519 sin(x1,x1) x0 + -15844447.595 sin(x1,x1) x1 + 276779.252 sin(x1,x1) x0^2 + 1903612.116 sin(x1,x1) x0 x1 + -1532756.860 sin(x1,x1) x1^2 + 848314.868 cos(x0,x0) 1 + 1849284.832 cos(x0,x0) x0 + -4327375.988 cos(x0,x0) x1 + -299420.170 cos(x0,x0) x0^2 + 770206.695 cos(x0,x0) x0 x1 + -597372.720 cos(x0,x0) x1^2 + 6173327.534 cos(x0,x1) 1 + 3358460.130 cos(x0,x1) x0 + 4485836.209 cos(x0,x1) x1 + -301259.585 cos(x0,x1) x0^2 + 1644822.468 cos(x0,x1) x0 x1 + -895564.384 cos(x0,x1) x1^2 + -7192443.416 cos(x1,x1) 1 + 2518015.183 cos(x1,x1) x0 + 895116.369 cos(x1,x1) x0^2 + -6725292.308 cos(x1,x1) x0 x1 + 7332314.200 cos(x1,x1) x1^2
+(x1)' = -5.353 abs(x0) 1 + -1.049 abs(x0) x0 + 20.503 abs(x0) x1 + 99.062 abs(x0) x0^2 + -359.826 abs(x0) x0 x1 + 42.252 abs(x1) 1 + 71.425 abs(x1) x0 + 55.282 abs(x1) x1 + 253.613 abs(x1) x0^2 + -2505.524 abs(x1) x0 x1 + 2549.064 abs(x1) x1^2 + 3.004 sgn(x0) x0 + -4.713 sgn(x0) x1 + -2.365 sgn(x0) x0^2 + -6.057 sgn(x0) x0 x1 + 1.063 sgn(x1) 1 + -18.451 sgn(x1) x0 + -11.550 sgn(x1) x1 + -1.980 sgn(x1) x0^2 + -23.635 sgn(x1) x0 x1 + 13.036 sgn(x1) x1^2 + -16028254.155 exp(x0) 1 + 6292009.316 exp(x0) x0 + 821346.647 exp(x0) x1 + -695176.462 exp(x0) x0^2 + 204423.660 exp(x0) x0 x1 + -877388.886 exp(x0) x1^2 + 2801275.555 exp(x1) 1 + 8667115.418 exp(x1) x0 + 20663638.638 exp(x1) x1 + 1501151.691 exp(x1) x0^2 + -6644005.500 exp(x1) x0 x1 + -7336064.279 exp(x1) x1^2 + 10128360.262 sin(x0,x0) 1 + -4813957.691 sin(x0,x0) x0 + 7127100.531 sin(x0,x0) x1 + -453845.336 sin(x0,x0) x0^2 + 504529.266 sin(x0,x0) x0 x1 + -406251.247 sin(x0,x1) 1 + 4432454.151 sin(x0,x1) x1 + 1556447.846 sin(x0,x1) x0^2 + -9298083.832 sin(x0,x1) x0 x1 + 7055008.851 sin(x0,x1) x1^2 + -32246285.140 sin(x1,x1) 1 + 316373.744 sin(x1,x1) x0 + -1993085.935 sin(x1,x1) x1 + -568496.719 sin(x1,x1) x0^2 + -4542045.103 sin(x1,x1) x0 x1 + 11475866.839 sin(x1,x1) x1^2 + -13017523.109 cos(x0,x0) 1 + -3944428.281 cos(x0,x0) x0 + 2345197.821 cos(x0,x0) x1 + 521792.021 cos(x0,x0) x0^2 + -1651560.679 cos(x0,x0) x0 x1 + 1198886.866 cos(x0,x0) x1^2 + 22410122.380 cos(x0,x1) 1 + -10239635.307 cos(x0,x1) x0 + -4673649.835 cos(x0,x1) x0^2 + 3424641.824 cos(x0,x1) x0 x1 + 955371.811 cos(x0,x1) x1^2 + 3834379.329 cos(x1,x1) 1 + -4597283.482 cos(x1,x1) x0 + 38267369.061 cos(x1,x1) x1 + -134103.589 cos(x1,x1) x0^2 + -1730952.605 cos(x1,x1) x0 x1 + 2422327.342 cos(x1,x1) x1^2
+
+The score:
+0.997852395954756
+
+The names:
+['abs(x0) 1', 'abs(x0) x0', 'abs(x0) x1', 'abs(x0) x0^2', 'abs(x0) x0 x1', 'abs(x0) x1^2', 'abs(x1) 1', 'abs(x1) x0', 'abs(x1) x1', 'abs(x1) x0^2', 'abs(x1) x0 x1', 'abs(x1) x1^2', 'sgn(x0) 1', 'sgn(x0) x0', 'sgn(x0) x1', 'sgn(x0) x0^2', 'sgn(x0) x0 x1', 'sgn(x0) x1^2', 'sgn(x1) 1', 'sgn(x1) x0', 'sgn(x1) x1', 'sgn(x1) x0^2', 'sgn(x1) x0 x1', 'sgn(x1) x1^2', 'exp(x0) 1', 'exp(x0) x0', 'exp(x0) x1', 'exp(x0) x0^2', 'exp(x0) x0 x1', 'exp(x0) x1^2', 'exp(x1) 1', 'exp(x1) x0', 'exp(x1) x1', 'exp(x1) x0^2', 'exp(x1) x0 x1', 'exp(x1) x1^2', 'sin(x0,x0) 1', 'sin(x0,x0) x0', 'sin(x0,x0) x1', 'sin(x0,x0) x0^2', 'sin(x0,x0) x0 x1', 'sin(x0,x0) x1^2', 'sin(x0,x1) 1', 'sin(x0,x1) x0', 'sin(x0,x1) x1', 'sin(x0,x1) x0^2', 'sin(x0,x1) x0 x1', 'sin(x0,x1) x1^2', 'sin(x1,x1) 1', 'sin(x1,x1) x0', 'sin(x1,x1) x1', 'sin(x1,x1) x0^2', 'sin(x1,x1) x0 x1', 'sin(x1,x1) x1^2', 'cos(x0,x0) 1', 'cos(x0,x0) x0', 'cos(x0,x0) x1', 'cos(x0,x0) x0^2', 'cos(x0,x0) x0 x1', 'cos(x0,x0) x1^2', 'cos(x0,x1) 1', 'cos(x0,x1) x0', 'cos(x0,x1) x1', 'cos(x0,x1) x0^2', 'cos(x0,x1) x0 x1', 'cos(x0,x1) x1^2', 'cos(x1,x1) 1', 'cos(x1,x1) x0', 'cos(x1,x1) x1', 'cos(x1,x1) x0^2', 'cos(x1,x1) x0 x1', 'cos(x1,x1) x1^2']
+
+Figure saved to: sindy_plots/FL_cus_poly_t.pdf
+Figure saved to: sindy_plots/FL_cus_poly_t.svg
+capi_return is NULL
+Call-back cb_f_in_lsoda__user__routines failed.
