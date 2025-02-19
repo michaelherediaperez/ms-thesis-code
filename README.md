@@ -1,8 +1,8 @@
-# ms-thesis-code
+# A state-of-the-art review of the Bouc-Wen model and hysteresis characterization through sparse regression techniques
 
-This repository contains the code used in my master thesis titled:
+This repository contains the code used in my master thesis.
 
-**"A state-of-the-art review of the Bouc-Wen model and hysteresis characterization through sparse regression techniques"**.
+![](results_plots/bw--time-response-hyst-loop.svg)
 
 ## Table of Contents
 
@@ -43,6 +43,7 @@ This repository contains the code used in my master thesis titled:
 | [hys-butterfly.py](hys-butterfly.py) | Double loop hysteresis.                                                     |
 | [hys-lonely-stroke.py](hys-lonely-stroke.py) | Hysteresis with lonely-stroke.                                              |
 
+![](zz_screnshots/Screenshot_20250219_163427.png)
 
 ## SINDy Implementation
 
@@ -54,6 +55,8 @@ The Sparse Identification of Nonlinear Dynamics (SINDy) technique is used for hy
 | [sindy_hys_02.py](sindy_hys_02.py) | Case 2: Linear-time growth external force.                                  |
 | [sindy_hys_01_control.py](sindy_hys_01_control.py) | Control implementation for Case 1 (exponential growth external force).      |
 
+![](sindy_plots_1c/poly_c.svg)
+![](sindy_plots_1c/four_c.svg)
 
 ## Complementary Figures
 
@@ -66,6 +69,9 @@ The following codes are used to generate complementary figures for the thesis:
 | [pnorm.py](pnorm.py)               | Plots for the l0-norm, l1-norm, and l2-norm.                               |
 | [sign_approx_tanh.py](sign_approx_tanh.py) | Plots the approximations used for the SINDy implementation, including smooth absolute value and sign approximations. |
 
+
+![](zz_screnshots/Screenshot_20250219_163915.png)
+![](results_plots/p-norm.svg)
 
 ## Folders structure
 
