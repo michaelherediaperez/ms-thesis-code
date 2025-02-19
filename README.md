@@ -4,7 +4,7 @@ This repository contains the code used in my master thesis.
 
 ![](results_plots/bw--time-response-hyst-loop.svg)
 
-## Table of Contents
+## Table of contents
 
 1. [Auxiliary functions](#auxiliary-functions)
 2. [Bouc-Wen models and hysteresis behaviors](#bouc-wen-models-and-hysteresis-behaviors)
@@ -12,19 +12,19 @@ This repository contains the code used in my master thesis.
 4. [Complementary figures](#complementary-figures)
 5. [Folders structure](#folders-structure)
 
-## Auxiliary Functions
+## Auxiliary functions
 
-| File Name                          | Description                                                                 |
+| File name                          | Description                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------|
 | [functions.py](functions.py)       | Helper functions for plotting and data management.                         |
 | [dynamics_functions.py](dynamics_functions.py) | Functions for hysteresis simulations.                                      |
 | [sindy_implementation_functions.py](sindy_implementation_functions.py) | Functions for SINDy implementation in hysteresis identification.           |
 
-## Bouc-Wen Models and Hysteresis Behaviors
+## Bouc-Wen models and hysteresis Behaviors
 
-### Bouc-Wen Class Models
+### Bouc-Wen class models
 
-| Model File                         | Description                                                                 |
+| Model file                         | Description                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------|
 | [bw_model.py](bw_model.py)         | Standard Bouc-Wen model. Simulates symmetric hysteresis with softening/hardening. |
 | [bw_analysis.py](bw_analysis.py)   | Sensitivity analysis of the parameters of the standard Bouc-Wen model.      |
@@ -34,9 +34,9 @@ This repository contains the code used in my master thesis.
 | [fsbw_model.py](fsbw_model.py)     | Flag-shape Bouc-Wen model. Simulates flag-shaped hysteresis.                |
 | [bw_citation_evolution.py](bw_citation_evolution.py) | Displays the evolution of the citations of the Bouc-Wen class model across the years. |
 
-### Other Hysteresis Behaviors
+### Other hysteresis behaviors
 
-| File Name                          | Description                                                                 |
+| File name                          | Description                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------|
 | [hys-s-shaped.py](hys-s-shaped.py) | S-shaped hysteresis.                                                        |
 | [hys-backslash-like.py](hys-backslash-like.py) | Backslash-like hysteresis.                                                  |
@@ -45,11 +45,11 @@ This repository contains the code used in my master thesis.
 
 ![](zz_screnshots/Screenshot_20250219_163427.png)
 
-## SINDy Implementation
+## SINDy implementation
 
-The Sparse Identification of Nonlinear Dynamics (SINDy) technique is used for hysteresis characterization. The implementation can be found in the following files:
+The sparse identification of nonlinear dynamics (SINDy) technique is used for hysteresis characterization. The implementation can be found in the following files:
 
-| File Name                          | Description                                                                 |
+| File name                          | Description                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------|
 | [sindy_hys_01.py](sindy_hys_01.py) | Case 1: Exponential growth external force.                                  |
 | [sindy_hys_02.py](sindy_hys_02.py) | Case 2: Linear-time growth external force.                                  |
@@ -58,11 +58,11 @@ The Sparse Identification of Nonlinear Dynamics (SINDy) technique is used for hy
 ![](sindy_plots_1c/poly_c.svg)
 ![](sindy_plots_1c/four_c.svg)
 
-## Complementary Figures
+## Complementary figures
 
 The following codes are used to generate complementary figures for the thesis:
 
-| File Name                          | Description                                                                 |
+| File name                          | Description                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------|
 | [2d_damped_oscillator.py](2d_damped_oscillator.py) | 2D damped oscillator simulation.                                           |
 | [abs_smooth_approximation.py](abs_smooth_approximation.py) | Smooth approximation of the absolute value.                                |
