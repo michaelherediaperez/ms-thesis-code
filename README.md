@@ -68,10 +68,13 @@ The following codes are used to generate complementary figures for the thesis:
 | [abs_smooth_approximation.py](abs_smooth_approximation.py) | Smooth approximation of the absolute value.                                |
 | [pnorm.py](pnorm.py)               | Plots for the l0-norm, l1-norm, and l2-norm.                               |
 | [sign_approx_tanh.py](sign_approx_tanh.py) | Plots the approximations used for the SINDy implementation, including smooth absolute value and sign approximations. |
+| [terms_growth.py](terms_growth.py) | Presents how the increase in the order of a polynomial feature library leds to a exponential growth tendency. |
+| [pareto_front.py](pareto_front.py) | A mockup to ilustrate the Pareto curve. |
 
 
 ![](zz_screnshots/Screenshot_20250219_163915.png)
 ![](results_plots/p-norm.svg)
+![](results_plots/pareto_curve.svg)
 
 ## Folders structure
 
