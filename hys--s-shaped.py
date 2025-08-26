@@ -7,7 +7,6 @@ Coder:
     mherediap@unal.edu.co
     Universidad Nacional de Colombia
     170001 Manizales, Colombia
-    January 2025
 
 References:
     Lu, Y., Xiong, F., & Zhong, J. (2022). Uniaxial hysteretic spring models 
@@ -58,9 +57,10 @@ print("Shape of y_ratio:",   y_ratio.shape)
 print("\nFirst few x_ratio values:", x_ratio[:5])
 print("First few y_ratio values:",   y_ratio[:5])
 
-# The `M1` and `thf` are arrays with 41000 points, while `Mu` and `theta_s` are 
-# single values. The arrays are also wrapped in an extra dimension: shape is 
-# (1, 41000) instead of just (41000).
+# The data is in a different shape than we initially assumed. The `M1` and `thf`
+# are arrays with 41000 points, while `Mu` and `theta_s` are single values. 
+# The arrays are also wrapped in an extra dimension: shape is (1, 41000) instead
+# of just (41000)
 
 # -----
 # Plot.
@@ -73,6 +73,6 @@ x_ratio = mat_data['thf'].flatten() / mat_data['theta_s'].item()
 fig = plot_hysteresis(x_ratio, y_ratio)
 # save_image(fig, "hys--s-shape")
 # t = np.zeros(x_ratio.shape)
-# store_data("hys--s-shape", t, x_ratio, y_ratio)
+# store_data("hys--s-shape", x_ratio, y_ratio, t)
 
 # Fin :)    

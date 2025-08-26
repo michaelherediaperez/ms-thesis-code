@@ -56,6 +56,6 @@ dy = np.gradient(y, t)
 
 fig = plot_hysteresis(x, y**2)
 # save_image(fig, "hys--butterfly")
-# store_data("hys--backlash-like", x, y**2, t)
+# store_data("hys--butterfly", x, y**2, t)
 
 # Fin :)

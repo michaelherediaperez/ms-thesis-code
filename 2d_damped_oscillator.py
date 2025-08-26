@@ -1,27 +1,45 @@
 """
 Recreating the two-dimensional damped oscillator example form SINDY
 
+References:
+    Brunton, S. L., Proctor, J. L., & Kutz, J. N. (2016). Discovering governing 
+    equations from data by sparse identification of nonlinear dynamical systems. 
+    Proceedings of the national academy of sciences, 113(15), 3932-3937.
+
 Coder:
     Michael Heredia Pérez
     mherediap@unal.edu.co
     Universidad Nacional de Colombia
     170001 Manizales, Colombia
 
-References:
-    Brunton, S. L., Proctor, J. L., & Kutz, J. N. (2016). Discovering governing 
-    equations from data by sparse identification of nonlinear dynamical systems. 
-    Proceedings of the national academy of sciences, 113(15), 3932-3937.
-
-Date:
-    January 2025
+January 2025
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib as mpl
 from scipy.integrate import solve_ivp
 import pysindy as ps
 
 from functions import plot_data, plot_comparatives_3, save_image
+
+# Configure matplotlib for STIX font - comprehensive setup
+mpl.rcParams.update({
+    # Primary font configuration
+    "font.family": "serif",              # Use serif family
+    "font.serif": ["STIX", "STIXGeneral", "STIX Two Text"], # STIX font priority
+    "mathtext.fontset": "stix",          # Math expressions in STIX
+    
+    # Explicit font specification for all text elements
+    "axes.labelsize": 18,
+    "axes.titlesize": 18, 
+    "legend.fontsize": 16,
+    "xtick.labelsize": 18,
+    "ytick.labelsize": 18,
+    "font.size": 16,
+    
+    # Line properties
+    "lines.linewidth": 1.5
+})
 
 def damped_oscillator(t, state, a, b, c, d, n):
     """
@@ -113,6 +131,6 @@ for i, n in enumerate(params["n"]):
     # Presents the results.
     fig = plot_comparatives_3(X.T, X_sindy.T, t)
     # Save the plots.
-    # save_image(fig, figures_names[i])
-    # print("\n")
+    save_image(fig, figures_names[i])
+    print("\n")
 

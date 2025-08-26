@@ -67,8 +67,8 @@ def bouc_wen_system(t, state, m, c, k, alpha, gamma, beta, n, A, F0, omega):
     x, v, z = state
     
     # External force (sinusoidal)
-    f= external_force_sin(t, F0, omega, growth=0.03)    
-    #f= external_force_sin(t, F0, omega)
+    f = external_force_sin(t, F0, omega, growth=0.03)    
+    #f = external_force_sin(t, F0, omega)
 
     # System equations
     dxdt = v

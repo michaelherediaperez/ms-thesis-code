@@ -36,20 +36,19 @@ Date:
 
 import numpy as np
 import pysindy as ps
-from sklearn.linear_model import Lasso
 
 from functions import plot_comparatives_3, save_image
 from abs_smooth_approximation import abs_smooth_approximation
 
 
 def simulate_sindy_model(
-    X, X_0, t, ft_lbs, optimizer="stlsq", control_u=False, store=False
+    X, X_0, t, ft_lbs, th, control_u=False, store=False
     ) -> None:
     """
     This functions generates a SINDy model from the data and performes the 
     simulation based on given initial conditions. The feature library 
     information for the modeling process is given by a dictionary entry. 
-    The algorithm is the STLSQ with a fixed values, and the method for 
+    The algorithm is the STLSQ with a fixed alpha, and the method for 
     numerical differentiation is the default one. 
     
     Args:
@@ -63,6 +62,7 @@ def simulate_sindy_model(
             - Its keys (string) are the coded names of the feature library.
             - Its values (pysindy objects) are the ps.FeatureLibrary structure 
             with its own constraints.
+        th (float): Threshold for the optimizer, the STLSQ.
         optimizer (str): default to "sltsq".
             The choosen optimizer to peform SINDy (stlsq, lasso).
         control_u (numpy.ndarray): default to False.
@@ -74,29 +74,24 @@ def simulate_sindy_model(
     """
     for ft_lb_key, ft_lb_val in ft_lbs.items():
         
-        # Build the SINDy model with the defined feature library.
-        model = ps.SINDy(feature_library=ft_lb_val)
-
         # Define the optimization method for the model.
-        if optimizer=="stlsq":
-            model.optimizer = ps.STLSQ(threshold=0.01, alpha=0.05)
-        elif optimizer=="lasso":
-            model.optimizer = Lasso(alpha=2, max_iter=2000, fit_intercept=False)
-        else:
-            raise Exception("The optimizer chosen is not valid in this code.")
+        optimizer = ps.STLSQ(threshold=th, alpha=0.05)
+        
+        # Build the SINDy model with the defined feature library.
+        model = ps.SINDy(feature_library=ft_lb_val, optimizer=optimizer)
         
         # Fit the model, compute the simulation for the initial conditions and 
         # get a score.
         if control_u is not False:  # This ensures only when a valid array is provided
-            model.fit(X, t, u=control_u)
-            X_sindy = model.simulate(X_0, t, u=control_u) 
-            score   = model.score(X, t, u=control_u)
+            model.fit(X, t=t, u=control_u)
+            X_sindy = model.simulate(X_0, t, u=control_u)
+            score = model.score(X, t=t, u=control_u)
             # FIX THE SIZE PROBLEM: actually do not know why this fails.
             X_sindy = np.vstack([X_sindy, X_sindy[-1,:]])
         else:
             model.fit(X, t=t)
             X_sindy = model.simulate(X_0, t) 
-            score   = model.score(X, t)
+            score = model.score(X, t)
 
             
         # Repor the model, its score and the features implemented.
@@ -115,7 +110,7 @@ def simulate_sindy_model(
             save_image(fig, ft_lb_key, directory=store)
 
 
-def build_pos_polynomial_libraries():
+def build_pos_polynomial_libraries(up_to_degree=3):
     """
     This function build possible polynomial libraries to try the SINDY 
     identification process, taking into consideration polynoials up to 3rd 
@@ -129,9 +124,9 @@ def build_pos_polynomial_libraries():
             with its own constraints.
     """
     # Argument options for Polynomial Library
-    pos_pol_degress = range(1,4)            # Possible degrees
-    pos_bias =  [True, False]               # Possible bias 
-    pos_interaction = [True, False]         # Possible terms interaction
+    pos_pol_degress = range(1,up_to_degree+1)   # Possible degrees
+    pos_bias =  [True, False]                   # Possible bias 
+    pos_interaction = [True, False]             # Possible terms interaction
 
     # Define the possible polynomial feature libraries
     poly_feature_libraries = {}
@@ -148,7 +143,7 @@ def build_pos_polynomial_libraries():
     
     return poly_feature_libraries
 
-def build_pos_fourier_libraries():
+def build_pos_fourier_libraries(up_to_freq=4):
     """
     This function build possible Fourier libraries to try the SINDY 
     identification process, taking into consideration up to 4 frequencies.
@@ -161,7 +156,7 @@ def build_pos_fourier_libraries():
             with its own constraints.
     """
     # Arguments options for the Fourier Library
-    pos_freq = range(1,5)                   # Possible frequencies
+    pos_freq = range(1,up_to_freq+1)                   # Possible frequencies
     # Define the possible polynomial feature libraries
     four_feature_libraries = {}
 

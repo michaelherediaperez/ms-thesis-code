@@ -15,7 +15,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from functions import save_image, store_data, read_parameter_set, plot_hysteresis
-from mbwbn_model import mbwbn_model
+from bw_mbwbn_model import mbwbn_model
 from dynamics_functions import std_restoring_force, simulate_ODE
 
 

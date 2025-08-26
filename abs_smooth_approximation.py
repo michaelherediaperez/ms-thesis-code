@@ -3,18 +3,40 @@ This is a comparison of the absolute value function calculated by Python vs the
 smooth approximation taught by Diego.
 
 Coder: 
+------
     Michael Heredia Pérez
     mherediap@unal.edu.co
     Universidad Nacional de Colombia 
     170001 Manizales, Colombia
-
+    
 Date:
+-----
     Januray 2025
 """
 
 import matplotlib.pyplot as plt
 import random
 import numpy as np
+
+# Configure matplotlib for STIX font - comprehensive setup
+import matplotlib as mpl
+mpl.rcParams.update({
+    # Primary font configuration
+    "font.family": "serif",              # Use serif family
+    "font.serif": ["STIX", "STIXGeneral", "STIX Two Text"], # STIX font priority
+    "mathtext.fontset": "stix",          # Math expressions in STIX
+    
+    # Explicit font specification for all text elements
+    "axes.labelsize": 18,
+    "axes.titlesize": 18, 
+    "legend.fontsize": 16,
+    "xtick.labelsize": 18,
+    "ytick.labelsize": 18,
+    "font.size": 16,
+    
+    # Line properties
+    "lines.linewidth": 1.5
+})
 
 def abs_smooth_approximation(x, k=10):
     """This function calculates the smoth approximation of the absolute value of

@@ -7,7 +7,6 @@ Coder:
     mherediap@unal.edu.co
     Universidad Nacional de Colombia
     170001 Manizales, Colombia
-    January 2025
 
 References:
     Konda, R., & Zhang, J. (2022). Hysteresis with lonely stroke in artificial 

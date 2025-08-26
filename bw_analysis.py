@@ -14,10 +14,31 @@ Date:
     Januray 2025
 """
 
-
 import matplotlib.pyplot as plt
+import itertools
+                    
 from bw_model import simulate_bouc_wen, restoring_force
 from functions import save_image
+
+import matplotlib as mpl
+# Configure matplotlib for STIX font - comprehensive setup
+mpl.rcParams.update({
+    # Primary font configuration
+    "font.family": "serif",              # Use serif family
+    "font.serif": ["STIX", "STIXGeneral", "STIX Two Text"], # STIX font priority
+    "mathtext.fontset": "stix",          # Math expressions in STIX
+    
+    # Explicit font specification for all text elements
+    "axes.labelsize": 18,
+    "axes.titlesize": 18, 
+    "legend.fontsize": 16,
+    "xtick.labelsize": 18,
+    "ytick.labelsize": 18,
+    "font.size": 16,
+    
+    # Line properties
+    "lines.linewidth": 1.5
+})
 
 # System parameters
 params = {
@@ -43,36 +64,63 @@ t, x, v, z = simulate_bouc_wen(params)
 f_r = restoring_force(params['alpha'], params['k'], x, z) 
 
 # -----
-# Single plot of the hysteresis and the time response.
+# Single plot of the hysteresis and the time response. (with colors)
 
-# Create plots.
-fig_1 = plt.figure(figsize=(15, 5))
+def single_plot_of_hysteresis_with_response_time(color=True):
+    """
+    This function creates a single plot showing the time response and the 
+    hysteresis loop, both with colors if `color` is True, or in black and white 
+    if False (this last one for the Springer publication).
 
-# Time series.
-plt.subplot(1, 2, 1)
-plt.plot(t, x, 'b-', label='Displacement')
-plt.plot(t, z, 'r--', label='Hysteretic Variable')
-plt.xlabel('Time')
-plt.ylabel('Amplitude')
-plt.title('Time Response')
-plt.grid(True)
-plt.legend()
+    Args:
+        color (bool, optional): To use colors blue and red. Defaults to True.
+    
+    Returns:
+        fig (matplotlib.figure.Figure): The figure object containing the plots.
+    """
+    # Create plots.
+    fig_1 = plt.figure(figsize=(15, 5))
 
-# Hysteresis loop.
-plt.subplot(1, 2, 2)
-plt.plot(x, f_r, 'b-', label='Hysteresis Loop')
-plt.plot(0, 0, 'b*')
-plt.xlabel('Displacement')
-plt.ylabel('Restoring force')
-plt.title('Hysteresis Loop')
-plt.grid(True)
-plt.legend()
+    # Time series.
+    plt.subplot(1, 2, 1)
+    if color:
+        plt.plot(t, x, 'b-', label='Displacement')
+        plt.plot(t, z, 'r--', label='Hysteretic Variable')
+    else:
+        plt.plot(t, x, 'k-', label=r'Displacement $x(t)$')  # Black line
+        plt.plot(t, z, 'k--', label=r'Hysteretic Variable $z(t)$')  # Dashed black
+    plt.xlabel('Time')
+    plt.ylabel('Amplitude')
+    plt.title('Time Response')
+    plt.grid(True, alpha=0.5)
+    plt.legend()
 
-plt.tight_layout()
-plt.show()
+    # Hysteresis loop.
+    plt.subplot(1, 2, 2)
+    if color:
+        plt.plot(x, f_r, 'b-', label='Hysteresis Loop')
+        plt.plot(0, 0, 'b*')
+    else:
+        plt.plot(x, f_r, 'k-', label='Hysteresis Loop')  # Black line
+        plt.plot(0, 0, 'ko')  # Black circle at origin
+    plt.xlabel('Displacement')
+    plt.ylabel('Restoring force')
+    plt.title('Hysteresis Loop')
+    plt.grid(True, alpha=0.5)
+    plt.legend()
 
+    plt.tight_layout()
+    plt.show()
+    
+    return fig_1
+
+# Create the figure with colors.
+fig_1_color = single_plot_of_hysteresis_with_response_time(color=True)    
+# Create the figure in black and white for Springer publication.
+fig_1_black = single_plot_of_hysteresis_with_response_time(color=False)
 # Save the figure
-# save_image(fig_1, "bw--time-response-hyst-loop")
+save_image(fig_1_color, "bw--time-response-hyst-loop-color")
+save_image(fig_1_black, "bw--time-response-hyst-loop-black") 
 
 # -----
 # Influence of each parameter in the hysteresis shape. 
@@ -83,37 +131,62 @@ variations = {
 'high beta': {**params, 'beta': 2.0},
 'high gamma': {**params, 'gamma': 2.0},
 'high n': {**params, 'n': 2.0},
-'low alpha': {**params, 'alpha': 0.1},
+'high alpha': {**params, 'alpha': 0.1},
 'high A': {**params, 'A': 2.0}
 }
 
-# Create plots
-fig_2 = plt.figure(figsize=(15, 10))
+def influence_of_each_parameter_in_hysteresis_shape(color=True):
+    """
+    This function creates a single plot showing the influence of each parameter 
+    in the hysteresis shape. It generates subplots for each variation of the 
+    standard Bouc-Wen mdoel, both with colors if `color` is True, or in black 
+    and white if False (this last one for the Springer publication).
 
-for i, (name, params) in enumerate(variations.items(), 1):
+    Args:
+        color (bool, optional): To use colors blue and red. Defaults to True.
     
-    # Run simulation
-    t, x, v, z = simulate_bouc_wen(params)
-    # Calculate the hysteretic force
-    f_r = restoring_force(params['alpha'], params['k'], x, z) 
+    Returns:
+        fig (matplotlib.figure.Figure): The figure object containing the plots.
     
-    # Plot hysteresis loop
-    plt.subplot(2, 3, i)
-    plt.plot(x, f_r, 'b-', label=name)
-    plt.plot(0, 0, 'b*')
-    plt.xlabel('Displacement')
-    plt.ylabel('Restoring force')
-    plt.title(f'{name}\n' + 
-            f'β={params["beta"]}, γ={params["gamma"]},\n' +
-            f'n={params["n"]}, α={params["alpha"]}, A={params["A"]}')
-    plt.grid(True)
-    
-    plt.tight_layout()
+    """
+    # Create plots
+    fig_2 = plt.figure(figsize=(15, 10))
 
-plt.show()
+    for i, (name, params) in enumerate(variations.items(), 1):
+        
+        # Run simulation
+        t, x, v, z = simulate_bouc_wen(params)
+        # Calculate the hysteretic force
+        f_r = restoring_force(params['alpha'], params['k'], x, z) 
+        
+        # Plot hysteresis loop
+        plt.subplot(2, 3, i)
+        if color:
+            plt.plot(x, f_r, 'b-', label=name)
+            plt.plot(0, 0, 'b*')
+        else:
+            plt.plot(x, f_r, 'k-', label=name)
+            plt.plot(0, 0, 'ko')
+        plt.xlabel('Displacement [m]')
+        plt.ylabel('Restoring force [N]')
+        plt.title(f'{name}\n'
+                rf'$\beta={params["beta"]}, \gamma={params["gamma"]},$' '\n'
+                rf'$n={params["n"]}, \alpha={params["alpha"]}, A={params["A"]}$')
+        plt.grid(True)
+        
+        plt.tight_layout()
 
+    plt.show()
+    
+    return fig_2
+
+# Create the figure with colors.
+fig_2_color = influence_of_each_parameter_in_hysteresis_shape(color=True)    
+# Create the figure in black and white for Springer publication.
+fig_2_black = influence_of_each_parameter_in_hysteresis_shape(color=False)
 # Save the figure
-# save_image(fig_2, "bw--parameter-influence")
+save_image(fig_2_color, "bw--parameter-influence-color")
+save_image(fig_2_black, "bw--parameter-influence-black")
 
 # Print explanation of effects
 print("\nParameter Effects on Hysteresis Behavior:")
@@ -131,7 +204,7 @@ print("   - Higher alpha: More linear elastic behavior")
 print("   - Lower alpha: More hysteretic behavior")
 print("\n5. Parameter A:")
 print("   - Higher A: Increases the size of the hysteresis loop")
-print("   - Lower A: Decreases the sizThe parameters of the standard Bouc-Wen model from Eq.~\eqref{eq:bouc-wen-model-sign} play a fundamental role in shaping the hysteresis behavior, each influencing the system's response in distinct ways. To better ilustrate this, a simulation was carried out solving the hysteretic system defined by Eqs.~\eqref{eq:bouc-wen-model-sign},~\eqref{eq:restoring-force} and~\ref{eq:sdof-eqm-nonlinear-dyn-system--c-constant}, taking into accoun the following parameters: mass of $m=1.0\,\mathrm{kg}$, a damping coefficient of $c=0.1\,\mathrm{Ns/m}$, and a stiffness of $k=1.0\,\mathrm{N/m}$. The external excitation was a sinusoidal force in the form of $$f = f_0 (1 - \exp(-b t)) \sin(\omega t)$$ with an amplitude of $f_0 =1.0\,\mathrm{N}$, a forcing frequency of $\omega = 1.0\,\mathrm{rad/s}$ and a exponential growth rate $b = 0.03\, s^{-1}$. The time span of the simulation was $0$ to $50\,\mathrm{s}$, with initial conditions set to zero for displacement, velocity, and the hysteretic variable.e of the hysteresis loop")
+print("   - Lower A: Decreases the size of the hysteresis loop")
 
 
 # -----
@@ -149,41 +222,72 @@ parameter_variations = {
     'A': [0.5, 1.0, 1.5, 2.0]
 }
 
-# Create a plot for each parameter
-fig_3, axes = plt.subplots(2, 3, figsize=(15, 10))
-axes = axes.flatten()
+def sensitivity_analysis_of_parameters(color=True):
+    """
+    This function performs a sensitivity analysis of the parameters of the 
+    standard Bouc-Wen model. It generates subplots for each parameter variation,
+    both with colors if `color` is True, or in black and white if False (this 
+    last one for the Springer publication).
 
-for i, (param_name, param_values) in enumerate(parameter_variations.items()):
-    if i < len(axes):
-        for value in param_values:
-            # Create new parameters with this variation
-            current_params = params.copy()
-            current_params['t_span'] = t_span_for_sensitivity
-            current_params[param_name] = value
+    Args:
+        color (bool, optional): To use colors blue and red. Defaults to True.
+    
+    Returns:
+        fig (matplotlib.figure.Figure): The figure object containing the plots.
+    """
+
+    # Create a plot for each parameter
+    fig_3, axes = plt.subplots(2, 3, figsize=(15, 10))
+    axes = axes.flatten()
+
+    for i, (param_name, param_values) in enumerate(parameter_variations.items()):
+        if i < len(axes):
+            for value in param_values:
+                # Create new parameters with this variation
+                current_params = params.copy()
+                current_params['t_span'] = t_span_for_sensitivity
+                current_params[param_name] = value
+                
+                # Run simulation
+                t, x, v, z = simulate_bouc_wen(current_params)
+                # Calculate the restoring force.
+                f_r = restoring_force(params['alpha'], params['k'], x, z) 
+                
+                # Plot
+                if color:
+                    axes[i].plot(x, f_r, label=f'{param_name}={value}')
+                    plt.plot(0, 0, 'k*')
+                else:
+                    # Cycle through different line styles
+                    linestyles = itertools.cycle(['-', '--', ':', '-.'])  
+                    # Get the next linestyle
+                    linestyle = next(linestyles)  
             
-            # Run simulation
-            t, x, v, z = simulate_bouc_wen(current_params)
-            # Calculate the restoring force.
-            f_r = restoring_force(params['alpha'], params['k'], x, z) 
-            
-            # Plot
-            axes[i].plot(x, f_r, label=f'{param_name}={value}')
-            plt.plot(0, 0, 'b*')
-            axes[i].set_xlabel('Displacement')
-            axes[i].set_ylabel('Restoring force')
-            axes[i].set_title(f'Effect of {param_name}')
-            axes[i].grid(True)
-            axes[i].legend()
+                    axes[i].plot(x, f_r, color='black', linestyle=linestyle, label=rf'{param_name} = {value}')
+                    axes[i].plot(0, 0, 'ko')
+                
+                axes[i].set_xlabel('Displacement [m]')
+                axes[i].set_ylabel('Restoring force [N]')
+                axes[i].set_title(f'Effect of {param_name}')
+                axes[i].grid(True)
+                axes[i].legend()
 
-# Remove empty subplot
-if len(parameter_variations) < len(axes):
-    fig_3.delaxes(axes[-1])
-{param_name}
-plt.tight_layout()
-plt.show()
+    # Remove empty subplot
+    if len(parameter_variations) < len(axes):
+        fig_3.delaxes(axes[-1])
+    {param_name}
+    plt.tight_layout()
+    plt.show()
 
+    return fig_3
+
+# Create the figure with colors.
+fig_3_color = sensitivity_analysis_of_parameters(color=True)    
+# Create the figure in black and white for Springer publication.
+fig_3_black =  sensitivity_analysis_of_parameters(color=False)
 # Save the figure
-# save_image(fig_3, "bw--sensitivity-analysis")
+save_image(fig_3_color, "bw--sensitivity-analysis-color")
+save_image(fig_3_black, "bw--sensitivity-analysis-black")
 
 # Print explanation of parameter effects
 print("\nParameter Effects on Hysteresis Behavior:")
@@ -205,5 +309,5 @@ for param_name in parameter_variations.keys():
         print("- Higher values increase loop size")
         print("- Lower values decrease loop size")
 
-
+# -----
 # Fin :)

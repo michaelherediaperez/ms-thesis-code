@@ -43,6 +43,26 @@ from sindy_implementation_functions import build_pos_polynomial_libraries
 from sindy_implementation_functions import build_pos_fourier_libraries
 from sindy_implementation_functions import build_pos_custom_library
 
+import matplotlib as mpl
+# Configure matplotlib for STIX font - comprehensive setup
+mpl.rcParams.update({
+    # Primary font configuration
+    "font.family": "serif",              # Use serif family
+    "font.serif": ["STIX", "STIXGeneral", "STIX Two Text"], # STIX font priority
+    "mathtext.fontset": "stix",          # Math expressions in STIX
+    
+    # Explicit font specification for all text elements
+    "axes.labelsize": 18,
+    "axes.titlesize": 18, 
+    "legend.fontsize": 16,
+    "xtick.labelsize": 18,
+    "ytick.labelsize": 18,
+    "font.size": 16,
+    
+    # Line properties
+    "lines.linewidth": 1.5
+})
+
 
 # -----
 # Load the data and work with it.
@@ -69,16 +89,16 @@ X_0 = np.array([0, 0])
 # Testing possible feature libraries, singles.
 
 # Build the possible feature libraries.
-poly_feature_libraries = build_pos_polynomial_libraries()
-four_feature_libraries = build_pos_fourier_libraries()
+poly_feature_libraries = build_pos_polynomial_libraries(up_to_degree=3)
+four_feature_libraries = build_pos_fourier_libraries(up_to_freq=4)
 cust_feature_library = build_pos_custom_library()
 
 # Iterate over all the possibilities:
-print("\n----- BEGINS -----")
-simulate_sindy_model(X, X_0, t, poly_feature_libraries, optimizer="stlsq") 
-simulate_sindy_model(X, X_0, t, four_feature_libraries, optimizer="stlsq")
-simulate_sindy_model(X, X_0, t, cust_feature_library, optimizer="stlsq")
-print("\n----- ENDS -----")
+print("\n--- Simulation begins")
+simulate_sindy_model(X, X_0, t, poly_feature_libraries, th=0.01, store="sindy_hys_02_single") 
+simulate_sindy_model(X, X_0, t, four_feature_libraries, th=0.01, store="sindy_hys_02_single")
+simulate_sindy_model(X, X_0, t, cust_feature_library, th=0.01, store="sindy_hys_02_single")
+print("\n--- Simulation ends")
 
 
 # Fin :)
