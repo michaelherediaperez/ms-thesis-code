@@ -34,7 +34,7 @@ This repository contains the code used in my master thesis.
 | [hys--butterfly.py](hys--butterfly.py) | Double loop hysteresis.                                                     |
 | [hys--lonely-stroke.py](hys--lonely-stroke.py) | Hysteresis with lonely-stroke.                                              |
 | [hys--s-shaped.py](hys--s-shaped.py) | S-shaped hysteresis.                                                        |
-| [hys--sym-deg-pinc.py](hys--sym-deg-pinc.py) | Generates figures for the modified Bouc-Wen-Baber-Noori model (mbwbn_model.py). |
+| [hys--sym-deg-pinc.py](hys--sym-deg-pinc.py) | Generates figures for the modified Bouc-Wen-Baber-Noori model ([bw_mbwbn_model.py](bw_mbwbn_model.py)). |
 | [hysteresis_plots.py](hysteresis_plots.py) | Generates all the figures with the adecaute format presented in the final document. |
 
 
@@ -84,7 +84,7 @@ The results and data used are organized into the following folders:
 | [outputs](outputs)         | Contains `.txt` outputs from the SINDy implementation.                           |
 | [publication_registry](publication_registry) | Contains citation data for the Bouc-Wen class model and the SINDy algorithm. |
 | [publication_trends_plots](publication_trends_plots) | Contains plots showing the evolution of the Bouc-Wen class model and the SINDy algorithm over the years. |
-| [results_data](results_data)    | Contains the data to create the **hysteresis_plots**, from Bouc-Wen simulations and shared data. |
+| [results_data](results_data)    | Contains the data to create the [hysteresis_plots](hysteresis_plots), from Bouc-Wen simulations and shared data. |
 | [results_plots](results_plots)   | Contains some Bouc-Wen simulations and the complementary figures. |
 | [sindy_hys_01_composed](sindy_hys_01_composed) | Contains plots for SINDy simulation for Case 1 with control. |
 | [sindy_hys_01_control](sindy_hys_01_control)  | Contains plots for SINDy simulation for Case 1 with composed feature libraries. |
