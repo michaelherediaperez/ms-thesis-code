@@ -68,7 +68,7 @@ The following codes are used to generate complementary figures for the thesis:
 | [terms_growth.py](terms_growth.py) | Presents how the increase in the order of a polynomial feature library leds to a exponential growth tendency. |
 
 
-![](zz_screenshots/Screenshot_20250219_163915.png)
+![](zz_screenshots/Screenshot_20250826_193026.png)
 ![](zz_screenshots/Screenshot_20250826_181407.png)
 ![](zz_screenshots/Screenshot_20250826_181550.png)
 
