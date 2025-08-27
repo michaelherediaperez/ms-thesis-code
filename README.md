@@ -38,7 +38,7 @@ This repository contains the code used in my master thesis.
 | [hysteresis_plots.py](hysteresis_plots.py) | Generates all the figures with the adecaute format presented in the final document. |
 
 
-![](zz_screenshots/Screenshot_20250826_183134.png)
+![](zz_screenshots/Screenshot_20250826_192332.png)
 
 ## SINDy implementation
 
@@ -79,15 +79,15 @@ The results and data used are organized into the following folders:
 
 | Folder Name         | Description                                                                 |
 |---------------------|-----------------------------------------------------------------------------|
-| **data**            | Contains data used in the generation of hysteresis models.                  |
-| **hysteresis_plots** | Contains the plots of the different hysteretic behaviors.                  |
-| **outputs**         | Contains `.txt` outputs from the SINDy implementation.                           |
-| **publication_registry** | Contains citation data for the Bouc-Wen class model and the SINDy algorithm. |
-| **publication_trends_plots** | Contains plots showing the evolution of the Bouc-Wen class model and the SINDy algorithm over the years. |
-| **results_data**    | Contains the data to create the **hysteresis_plots**, from Bouc-Wen simulations and shared data. |
-| **results_plots**   | Contains some Bouc-Wen simulations and the complementary figures. |
-| **sindy_hys_01_composed** | Contains plots for SINDy simulation for Case 1 with control. |
-| **sindy_hys_01_control**  | Contains plots for SINDy simulation for Case 1 with composed feature libraries. |
-| **sindy_hys_01_single**   | Contains plots for SINDy simulation for Case 1 with single feature libraries. |
-| **sindy_hys_02_single**   | Contains plots for SINDy simulation for Case 2 with single feature libraries.|
-| **zz_screenshots**   | Some figures to present in this README.md           |
+| [data](data)            | Contains data used in the generation of hysteresis models.                  |
+| [hysteresis_plots](hysteresis_plots) | Contains the plots of the different hysteretic behaviors.                  |
+| [outputs](outputs)         | Contains `.txt` outputs from the SINDy implementation.                           |
+| [publication_registry](publication_registry) | Contains citation data for the Bouc-Wen class model and the SINDy algorithm. |
+| [publication_trends_plots](publication_trends_plots) | Contains plots showing the evolution of the Bouc-Wen class model and the SINDy algorithm over the years. |
+| [results_data](results_data)    | Contains the data to create the **hysteresis_plots**, from Bouc-Wen simulations and shared data. |
+| [results_plots](results_plots)   | Contains some Bouc-Wen simulations and the complementary figures. |
+| [sindy_hys_01_composed](sindy_hys_01_composed) | Contains plots for SINDy simulation for Case 1 with control. |
+| [sindy_hys_01_control](sindy_hys_01_control)  | Contains plots for SINDy simulation for Case 1 with composed feature libraries. |
+| [sindy_hys_01_single](sindy_hys_01_single)   | Contains plots for SINDy simulation for Case 1 with single feature libraries. |
+| [sindy_hys_02_single](sindy_hys_02_single)   | Contains plots for SINDy simulation for Case 2 with single feature libraries.|
+| [zz_screenshots](zz_screenshots)   | Some figures to present in this README.md           |
