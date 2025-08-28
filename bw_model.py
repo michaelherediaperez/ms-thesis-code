@@ -18,9 +18,9 @@ where the restoring force f_r(t) is given by:
 and the hystretic displacement z is as follows:  
 
 - Equation:
-    dz      dx        | dx |       {n-1}         dx | dz | ^ {n}
-    -- =  A -- - beta | -- | z |z|^     - gamma  -- | -- |
-    dt      dt        | dt |                     dt | dt |
+    dz      dx        | dx |       {n-1}         dx        ^ {n}
+    -- =  A -- - beta | -- | z |z|^     - gamma  -- | z |
+    dt      dt        | dt |                     dt 
 
 
 - LaTeX:
