@@ -3,14 +3,12 @@ This is a comparison of the absolute value function calculated by Python vs the
 smooth approximation taught by Diego.
 
 Coder: 
-------
     Michael Heredia Pérez
     mherediap@unal.edu.co
     Universidad Nacional de Colombia 
     170001 Manizales, Colombia
     
 Date:
------
     Januray 2025
 """
 

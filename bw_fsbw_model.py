@@ -6,7 +6,6 @@ Coder:
     mherediap@unal.edu.co
     Universidad Nacional de Colombia
     170001 Manizales, Colombia
-    January 2025
 
 Reference:
     Dong, H., Wang, C., Han, Q., & Du, X. (2024). Re-centering capability of 

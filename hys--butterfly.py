@@ -8,7 +8,6 @@ Coder:
     mherediap@unal.edu.co
     Universidad Nacional de Colombia
     170001 Manizales, Colombia
-    January 2025
 
 References:
     Chandra, A., Daniels, B., Curti, M., Tiels, K., Lomonova, E. A., & 
