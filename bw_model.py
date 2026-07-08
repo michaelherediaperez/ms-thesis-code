@@ -37,6 +37,25 @@ import matplotlib.pyplot as plt
 # Custom functions
 from functions import store_data, save_image, plot_hysteresis
 
+import matplotlib as mpl
+# Configure matplotlib for STIX font - comprehensive setup
+mpl.rcParams.update({
+    # Primary font configuration
+    "font.family": "serif",              # Use serif family
+    "font.serif": ["STIX", "STIXGeneral", "STIX Two Text"], # STIX font priority
+    "mathtext.fontset": "stix",          # Math expressions in STIX
+    
+    # Explicit font specification for all text elements
+    "axes.labelsize": 18,
+    "axes.titlesize": 18, 
+    "legend.fontsize": 16,
+    "xtick.labelsize": 18,
+    "ytick.labelsize": 18,
+    "font.size": 16,
+    
+    # Line properties
+    "lines.linewidth": 1.5
+})
 
 def external_force_sin(t, F0, omega, growth=False):
     """
@@ -164,24 +183,24 @@ if __name__ == "__main__":
     plt.subplot(1, 3, 1)
     plt.plot(t, x, "b-", label="Displacement")
     plt.plot(t, z, "r--", label="Hysteretic Variable")
-    plt.xlabel("Time")
-    plt.ylabel("Amplitud")
+    plt.xlabel("Time, $t$")
+    plt.ylabel("Amplitude, $x$")
     plt.grid(True, alpha=0.5)
     plt.legend()
 
     # Time series
     plt.subplot(1, 3, 2)
     plt.plot(t, f_r, "b-")
-    plt.xlabel("Time")
-    plt.ylabel("Restoring force")
+    plt.xlabel("Time, $t$")
+    plt.ylabel("Restoring force, $f_r$")
     plt.grid(True, alpha=0.5)
 
     # Hysteresis loop
     plt.subplot(1, 3, 3)
     plt.plot(x, f_r, "b-")
     plt.plot(0, 0, "b*")
-    plt.xlabel("Displacement")
-    plt.ylabel("Restoring force")
+    plt.xlabel("Displacement, $x$")
+    plt.ylabel("Restoring force, $f_r$")
     plt.grid(True, alpha=0.5)
 
     plt.tight_layout()
@@ -189,11 +208,11 @@ if __name__ == "__main__":
 
     # -----
     # Store the data
-    # store_data("hys--simulation-02", x, f_r, t)
-    # save_image(fig, "hys--simulation-01")
+    store_data("hys--simulation-02", x, f_r, t)
+    save_image(fig, "hys--simulation-01")
     
     # For hardening.
-    # fig = plot_hysteresis(x, f_r)
-    # save_image(fig, "hys--hardening")
-    # store_data("hys--hardening", x, f_r, t)
+    fig = plot_hysteresis(x, f_r)
+    save_image(fig, "hys--hardening")
+    store_data("hys--hardening", x, f_r, t)
 # Fin :)
