@@ -103,8 +103,8 @@ def simulate_sindy_model(
 
         # Plot the results.
         fig = plot_comparatives_3(
-            X.T, X_sindy.T, t, xylabels=["x(t)", "fr(t)", "t"], title=ft_lb_key
-            )
+            X.T, X_sindy.T, t, xylabels=[rf"$x$", rf"$f_r$", rf"$t$"]) # title=ft_lb_key
+            #)
         
         if store is not False:
             save_image(fig, ft_lb_key, directory=store)

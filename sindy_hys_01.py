@@ -91,10 +91,10 @@ four_feature_libraries = build_pos_fourier_libraries(up_to_freq=4)
 cust_feature_library = build_pos_custom_library()
 
 # Iterate over all the possibilities:
-print("\n--- Single feature libraries")
-simulate_sindy_model(X, X_0, t, poly_feature_libraries, th=0.01, store="sindy_hys_01_single") 
-simulate_sindy_model(X, X_0, t, four_feature_libraries, th=0.01, store="sindy_hys_01_single")
-simulate_sindy_model(X, X_0, t, cust_feature_library, th=0.01, store="sindy_hys_01_single")
+# print("\n--- Single feature libraries")
+# simulate_sindy_model(X, X_0, t, poly_feature_libraries, th=0.01, store="sindy_hys_01_single") 
+# simulate_sindy_model(X, X_0, t, four_feature_libraries, th=0.01, store="sindy_hys_01_single")
+# simulate_sindy_model(X, X_0, t, cust_feature_library, th=0.01, store="sindy_hys_01_single")
 
 # -----
 # Concatenation and tensor product of libraries.
@@ -129,8 +129,12 @@ tensor_poly_four_custom["FL_poly_four_t"] = filtered_featured_libraries["poly"] 
 
 # Run the simulations
 print("\n--- Composed feature libraries")
-simulate_sindy_model(X, X_0, t, concat_poly_four_custom, th=0.05, store="sindy_hys_01_composed")
-simulate_sindy_model(X, X_0, t, tensor_poly_four_custom, th=0.05, store="sindy_hys_01_composed")
+# simulate_sindy_model(X, X_0, t, concat_poly_four_custom, th=0.05, store="sindy_hys_01_composed")
+simulate_sindy_model(X, X_0, t, tensor_poly_four_custom, th=0.15, store="sindy_hys_01_composed")
+
+# ----
+# prueba = {"FL_cus_poly_t" : cust_feature_library["FL_cus"] * filtered_featured_libraries["poly"]}
+# simulate_sindy_model(X, X_0, t, prueba, th=0.05)
 
 print("--- End of the simulation.")
 
