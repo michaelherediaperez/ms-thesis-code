@@ -76,4 +76,30 @@ plt.legend()
 plt.show()
 save_image(fig_abs, "approx-abs-smooth")
 
+
+# -----
+# Plot both approximations together in a single figure.
+
+fig_combined, (ax_sign, ax_abs) = plt.subplots(1, 2, figsize=(12, 5))
+
+ax_sign.plot(x_1, np.tanh(x_1),    'b-',  label="y=tanh(x)")
+ax_sign.plot(x_1, np.tanh(10*x_1), 'r-',  label="y=tanh(10x)")
+ax_sign.plot(x_1, sign_np,         'g--', label="y=sign(x)")
+ax_sign.grid(True, alpha=0.5)
+ax_sign.axhline(0, color='black', linewidth=0.8, linestyle='--')
+ax_sign.axvline(0, color='black', linewidth=0.8, linestyle='--')
+ax_sign.legend()
+
+ax_abs.plot(x_2, abs_np,       'b-', label="y=abs(x)")
+ax_abs.plot(x_2, abs_smooth_10,  'g-', label="smooth abs, k=10")
+ax_abs.plot(x_2, abs_smooth_100, 'r-', label="smooth abs, k=100")
+ax_abs.grid(True, alpha=0.5)
+ax_abs.axhline(0, color='black', linewidth=0.8, linestyle='--')
+ax_abs.axvline(0, color='black', linewidth=0.8, linestyle='--')
+ax_abs.legend()
+
+fig_combined.tight_layout()
+plt.show()
+save_image(fig_combined, "approx-sign-abs-combined")
+
 # Fin :)
